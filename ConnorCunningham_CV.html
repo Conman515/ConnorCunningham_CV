@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Connor Cunningham</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-font: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --heading-font: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+            /* Premium Dark Theme Palette */
+            --bg-color: #121821; /* Even darker, slightly bluer background */
+            --container-bg: #1a202c; /* Dark blue/gray container */
+            --primary-text-color: #f7fafc; /* Almost white for high contrast */
+            --secondary-text-color: #a0aec0; /* Medium gray */
+            --muted-text-color: #718096;    /* Darker gray */
+            --accent-color: #dd6b20;       /* Deep Orange - slightly richer */
+            --link-color: #63b3ed;         /* Light Blue */
+            --link-hover-color: #90cdf4;   /* Slightly lighter blue on hover */
+            --border-color: #2d3748;       /* Subtle border, darker than container */
+        }
+
+        /* Basic Reset & Premium Font Smoothing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Smooth scrolling effect */
+        }
+
+        body {
+            font-family: var(--primary-font);
+            font-weight: 400;
+            line-height: 1.8; /* Slightly more generous line height */
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+             /* Subtle gradient for depth */
+            background-image: linear-gradient(180deg, var(--bg-color) 0%, #0f131a 100%);
+            color: var(--primary-text-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+             min-height: 100vh; /* Ensure gradient covers full height */
+        }
+
+        /* Container - More Breathing Room & Refined Shadow */
+        .cv-container {
+            max-width: 980px; /* Slightly wider for a premium feel */
+            margin: 60px auto; /* More vertical space */
+            padding: 60px 70px; /* More internal padding */
+            background-color: var(--container-bg);
+            border-radius: 8px; /* Slightly larger radius */
+             /* Softer, more layered shadow for dark theme */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Header - Elevated Typography */
+        .cv-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .cv-header h1 {
+            font-family: var(--heading-font);
+            font-weight: 700; /* Bolder */
+            font-size: 3em; /* Slightly larger */
+            color: var(--primary-text-color);
+            margin: 0 0 10px 0;
+            letter-spacing: -1px;
+        }
+         .cv-header .professional-title {
+             font-family: var(--heading-font);
+             font-size: 1.4em; /* More prominent */
+             font-weight: 400;
+             color: var(--accent-color); /* Orange accent */
+             margin: 0 0 25px 0; /* Adjusted spacing */
+             letter-spacing: 0.5px;
+         }
+        .cv-header p {
+            margin: 10px 0; /* More space */
+            font-size: 1.1em;
+            color: var(--secondary-text-color);
+        }
+        /* Premium Link Hover Effect */
+        .cv-header a, .cv-section p a, .cv-section li a, .references-list a {
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
+            padding-bottom: 1px; /* Add tiny space for underline effect */
+        }
+        .cv-header a:hover, .cv-section p a:hover, .cv-section li a:hover, .references-list a:hover {
+            color: var(--link-hover-color);
+            border-bottom-color: var(--link-hover-color);
+        }
+
+        /* Section Styling - Refined Appearance */
+        .cv-section {
+            margin-bottom: 50px;
+        }
+        .cv-section h2 { /* Section Titles */
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 1.8em;
+            color: var(--primary-text-color);
+            margin-bottom: 35px; /* More space below title */
+            padding-bottom: 18px; /* Increased padding */
+            border-bottom: 3px solid var(--accent-color); /* Thicker accent border */
+            display: inline-block;
+             letter-spacing: 1px; /* More spacing */
+             text-transform: uppercase;
+        }
+         .cv-section h3 { /* Subcategory Titles */
+            font-family: var(--heading-font);
+            font-size: 1.4em; /* Larger */
+            color: var(--primary-text-color);
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 20px; /* Increased space */
+        }
+
+        /* Entry Styling - Clearer Hierarchy */
+        .entry {
+            margin-bottom: 35px;
+            position: relative;
+        }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .entry-title { /* Job Title / Degree Name */
+            font-family: var(--heading-font); /* Use heading font for job titles */
+            font-size: 1.25em; /* Slightly larger */
+            font-weight: 700;
+            color: var(--primary-text-color);
+            margin: 0 0 5px 0;
+            flex-basis: 70%;
+        }
+        .entry-subtitle { /* Employer / University */
+            font-size: 1.15em; /* Larger */
+            font-style: normal;
+            color: var(--secondary-text-color);
+            font-weight: 400;
+            margin: 0 0 8px 0;
+             flex-basis: 70%;
+        }
+         .entry-minor-detail, .entry-detail { /* Specific detail / Minor */
+             font-size: 1em;
+             color: var(--muted-text-color);
+             margin: 4px 0 10px 0;
+             font-weight: 300; /* Lighter */
+              flex-basis: 70%;
+         }
+         .entry-header-right {
+            text-align: right;
+            flex-shrink: 0;
+            margin-left: 20px;
+             padding-top: 2px; /* Align better with title */
+         }
+        .entry-date, .entry-location, .entry-details {
+            font-size: 0.95em; /* Slightly larger */
+            color: var(--muted-text-color);
+            font-weight: 400;
+            display: block;
+            margin-bottom: 4px;
+            line-height: 1.5; /* Tighter for meta details */
+        }
+         .entry h4 { /* Project/Task subheadings - using accent */
+            font-family: var(--heading-font);
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--accent-color); /* Use Accent for task titles */
+            margin-top: 25px;
+            margin-bottom: 15px;
+            letter-spacing: 0.4px;
+         }
+
+        /* List Styling - Increased Sophistication */
+        .entry ul, .simple-list {
+            list-style: none;
+            padding-left: 15px; /* More subtle indent */
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+        .entry li, .simple-list li {
+            position: relative;
+            padding-left: 28px; /* Adjusted space for bullet */
+            margin-bottom: 12px; /* More space between points */
+             color: var(--secondary-text-color);
+        }
+        .entry li::before, .simple-list li::before {
+            content: '▪'; /* Square bullet for a modern look */
+            position: absolute;
+            left: 5px; /* Adjust position */
+            top: -1px; /* Fine-tune vertical alignment */
+            color: var(--accent-color); /* Orange bullets */
+            font-weight: 700;
+            font-size: 1.2em; /* Adjust size if needed */
+        }
+         .simple-list strong {
+            color: var(--primary-text-color);
+             font-weight: 600;
+         }
+
+         /* Skills Section - Premium Columns */
+        .skills-category {
+            margin-bottom: 30px;
+        }
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            column-count: 2;
+            column-gap: 60px; /* Increased gap */
+        }
+        .skills-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            font-size: 1.05em; /* Slightly larger skills text */
+            color: var(--secondary-text-color);
+            break-inside: avoid-column;
+        }
+         .skills-list li::before {
+            content: '▪'; /* Consistent square bullet */
+            position: absolute;
+            left: 5px;
+            top: -1px;
+            color: var(--accent-color);
+            font-weight: 700;
+             font-size: 1.2em;
+        }
+        .skills-list li a {
+            word-break: break-all;
+        }
+
+
+        /* References Section - Elegant Divider */
+        .references-list .ref-entry {
+            margin-bottom: 25px;
+             border-left: 3px solid var(--accent-color); /* Orange accent border */
+             padding-left: 20px; /* Increased padding */
+        }
+        .references-list p {
+            margin: 3px 0;
+            line-height: 1.6;
+        }
+        .references-list strong {
+             font-family: var(--heading-font);
+             font-weight: 700; /* Bolder Name */
+             color: var(--primary-text-color);
+             font-size: 1.15em; /* Slightly larger */
+             display: block;
+             margin-bottom: 6px; /* More space */
+        }
+
+        /* Responsive Design Adjustments (mostly maintaining proportions) */
+        @media (max-width: 900px) {
+             .cv-container {
+                 padding: 50px 50px;
+                 margin: 50px auto;
+             }
+             .skills-list {
+                 column-count: 1;
+             }
+         }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                margin: 30px 15px;
+                padding: 40px 30px;
+            }
+             .cv-header h1 {
+                font-size: 2.5em;
+            }
+             .cv-header .professional-title {
+                 font-size: 1.2em;
+             }
+            .cv-section h2 {
+                font-size: 1.6em;
+                 padding-bottom: 15px;
+                 margin-bottom: 30px;
+            }
+             .cv-section h3 {
+                 font-size: 1.3em;
+             }
+
+            /* Adjust entry stacking if needed, already handles okay */
+            .entry-header {
+                 flex-direction: column;
+                 align-items: flex-start;
+            }
+            .entry-header-right {
+                 text-align: left;
+                 margin-left: 0;
+                 margin-top: 10px; /* More space when stacked */
+            }
+            /* Minor tweaks for meta details if they wrap badly */
+            .entry-date, .entry-location, .entry-details {
+                 font-size: 0.9em;
+             }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                line-height: 1.7; /* Readjust slightly */
+            }
+            .cv-container {
+                padding: 30px 25px;
+                margin: 20px 10px;
+                 border-radius: 6px;
+            }
+            .cv-header h1 {
+                font-size: 2em;
+            }
+             .cv-header .professional-title {
+                 font-size: 1.1em;
+                 margin-bottom: 20px;
+             }
+            .cv-header p {
+                font-size: 1em;
+            }
+             .cv-section h2 {
+                font-size: 1.4em;
+            }
+             .cv-section h3 {
+                 font-size: 1.2em;
+             }
+             .entry-title {
+                 font-size: 1.15em;
+             }
+              .entry-subtitle {
+                 font-size: 1.05em;
+             }
+              .entry h4 {
+                  font-size: 1.05em;
+              }
+            /* Ensure meta details stack cleanly */
+            .entry-date, .entry-location, .entry-details {
+                  display: block;
+                  margin-right: 0;
+                  margin-bottom: 5px;
+                  font-size: 0.85em;
+             }
+         }
+
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        <header class="cv-header">
+            <h1>Connor Cunningham</h1>
+             <p class="professional-title">Fisheries Biologist</p>
+            <p>210 ½ S. 40th Ave., Yakima, WA 98908</p>
+            <p>
+                <a href="tel:304-539-2862">304-539-2862</a> |
+                <a href="mailto:connorcunninghamwv@gmail.com">connorcunninghamwv@gmail.com</a>
+            </p>
+        </header>
+
+        <section class="cv-section" id="education">
+            <h2>Education</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <!-- Group left-aligned text -->
+                    <div>
+                        <h3 class="entry-title">Master of Science in Biology</h3>
+                        <p class="entry-subtitle">Missouri State University</p>
+                        </div>
+                     <!-- Group right-aligned text -->
+                     <div class="entry-header-right">
+                         <span class="entry-location">Springfield, MO</span>
+                         <span class="entry-date">Est. July 2025</span>
+                         <span class="entry-details">GPA: 3.64</span>
+                     </div>
+                </div>
+            </div>
+            <div class="entry">
+                <div class="entry-header">
+                     <div>
+                        <h3 class="entry-title">Bachelor of Science in Wildlife and Fisheries Biology</h3>
+                        <p class="entry-subtitle">West Virginia University</p>
+                        <p class="entry-details">Minor: Conservation Ecology</p> <!-- Using minor-detail class -->
+                     </div>
+                     <div class="entry-header-right">
+                        <span class="entry-location">Morgantown, WV</span>
+                        <span class="entry-date">May 2019</span>
+                        <span class="entry-details">GPA: 3.72</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cv-section" id="experience">
+            <h2>Work Experience</h2>
+
+            <div class="entry">
+                <div class="entry-header">
+                     <div>
+                         <h3 class="entry-title">Fisheries Biologist - Yakima Basin</h3>
+                         <p class="entry-subtitle">United States Fish and Wildlife Service</p>
+                    </div>
+                    <div class="entry-header-right">
+                         <span class="entry-location">Yakima, WA</span>
+                         <span class="entry-date">July 2022 – Current</span>
+                         <span class="entry-details">GS-7/9 | 40+ hrs/wk<br>~$5262/Mo.</span>
+                    </div>
+                </div>
+
+                <h4>PIT Tag Monitoring & Infrastructure</h4>
+                <ul>
+                    <li>Monitor <a href="https://drive.google.com/file/d/1ptFv9aI9Qd1ZXiV0sJLTWcyedDj0BVhT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Bull Trout</a>, <a href="https://drive.google.com/file/d/13A0IOJyqFTH2ARNfsdevRKqYlrAI88hl/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Steelhead</a>, and <a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Salmon </a>populations using PIT tag technology.</li>
+                    <li>Construct, operate, and maintain PIT tag interrogation sites (n = ~50).</li>
+                    <li>Improve and develop PIT tag detection infrastructure and methodologies.</li>
+                    <li>Manage, manipulate, and analyze PIT tag data using PTAGIS and associated software.</li>
+                    <li>Evaluate population trends, habitat improvement project effectiveness, etc., using PIT tag data.</li>
+                    <li>Inform stakeholders of current PIT tag trends via reports, presentations, and informal communications.</li>
+                </ul>
+
+                <h4>Acoustic Telemetry</h4>
+                <ul>
+                    <li><a href="https://drive.google.com/file/d/1oKHQ0uou-MQUapzQFozbqIxRJHF_RnfG/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Conduct acoustic telemetry studies</a> on Bull Trout.</li>
+                    <li>Perform <a href="https://drive.google.com/file/d/1oCLQLmUYqHF_WffaTJwfuFEZPvOfGZFm/view?usp=drive_link" target="_blank" rel="noopener noreferrer">surgical implantation</a> of acoustic tags (Vemco & JSATS).</li>
+                    <li><a href="https://drive.google.com/file/d/15ohotWKskI5fRo__bqyaOf9Bn-CIUP2Z/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Deploy, operate, and retrieve acoustic receivers</a> in various aquatic environments.</li>
+                    <li>Manage, manipulate, and analyze acoustic telemetry data to assess fish movement and behavior.</li>
+                </ul>
+
+                <h4>Trap and Haul Operations</h4>
+                <ul>
+                    <li>Collect Bull Trout using various methods (<a href="https://drive.google.com/file/d/192G13XBOzU14q9LjTe8u6B0tZvhm2asr/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Hook and line</a>, <a href="https://drive.google.com/file/d/1zDx2yelUX4X-x4OopYsxLy_gd0J_FC29/view?usp=drive_link" target="_blank" rel="noopener noreferrer">tangle net</a>, weir).</li>
+                    <li>Collect and transport genetic samples according to established protocols.</li>
+                    <li><a href="https://drive.google.com/file/d/1HJLxFdpxtHW7konGSe3YehnfzMZqtiaA/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Implant PIT tags</a> in captured fish for tracking purposes.</li>
+                    <li>Coordinate trap and haul logistics through intra and interagency communication.</li>
+                </ul>
+
+                 <h4>Mussel Surveys</h4>
+                 <ul>
+                    <li>Conduct <a href="https://drive.google.com/file/d/1HhcBYdMg8dV12SsgazD2SbUEAzFwWNk8/view?usp=drive_link" target="_blank" rel="noopener noreferrer">large-scale eDNA</a> collection and sampling for mussel surveys.</li>
+                    <li>Perform <a href="https://drive.google.com/file/d/1kuXxdRM8S2BA9ql7BiN3P_KtWB7TVauG/view?usp=drive_link" target="_blank" rel="noopener noreferrer">visual snorkel surveys</a> for various mussel species, including kayaking in small woody streams.</li>
+                 </ul>
+                 <h4>Gold Creek Monitoring</h4>
+                 <ul>
+                    <li>Executed Gold Creek Bull Trout snorkel surveys, including<a href="https://drive.google.com/file/d/1d1uqXX5N1rvYInSBENxTVqX4F22Izum0/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> night snorkeling</a>/hiking and underwater species identification.</li>
+                 </ul>
+                 <h4>North Fork Tieton Parentage Study</h4>
+                 <ul>
+                    <li>Led juvenile Bull Trout electrofishing, night snorkeling/dip netting, and genetics sampling.</li>
+                 </ul>
+                 <h4>Cle Elum Sockeye Smolt Trap and Haul</h4>
+                 <ul>
+                    <li>Set and fished <a href="https://drive.google.com/file/d/11QwCCFrVx7v4lpyj4huroJaQpg3TzSxF/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Onedia nets</a></li>
+                    <li>Coordinated USFWS, WDFW, Yakama Nation, and Bureau of Reclamation</li>
+                    <li>Trained staff and volunteers on how to operate and collect <a href="https://drive.google.com/file/d/1XiPV-WQK_qjtJjSFaLjbdS_iGQHaQcGm/view?usp=drive_link" target="_blank" rel="noopener noreferrer">smolts</a> from nets</li>
+                 </ul>
+                 <h4>Various</h4>
+                 <ul>
+                    <li>Perform Bull Trout dewatering rescues and <a href="https://drive.google.com/file/d/1EKnD7y6SV4223BW7X0drgJtqMgSfpKfh/view?usp=drive_link" target="_blank" rel="noopener noreferrer">redd surveys</a>.</li>
+                    <li>Assist with <a href="https://drive.google.com/file/d/1XQkExoBZEyYr8Bk6HK4FCk_jHrMUpmqJ/view?usp=drive_link" target="_blank" rel="noopener noreferrer">flume construction</a> for fish passage.</li>
+                    <li>Assit BOR staff with fish recovery in <a href="https://drive.google.com/file/d/1J8EZpAhZtA-2rQiExsyB-pfdlhjqINxg/view?usp=drive_link" target="_blank" rel="noopener noreferrer">irrigation infrastructure</a></li>
+                    <li>Assist Hatchery staff with <a href="https://drive.google.com/file/d/1csIgQqvCQM3IPl7DTh2lV-3QHKTTeNT3/view?usp=drive_link" target="_blank" rel="noopener noreferrer">various task</a></li>
+                 </ul>
+
+                 <h4>Administrative & Logistics</h4>
+                 <ul>
+                    <li>Hold and manage purchase and travel cards with associated responsibilities.</li>
+                    <li>Develop and write technical reports and summaries.</li>
+                    <li>Schedule field and office work for self and potentially technicians.</li>
+                    <li>Participate in required trainings.</li>
+                    <li>Maintain equipment including boats, vehicles, and sampling gear.</li>
+                    <li>Attend and contribute to various inter and intra-agency meetings.</li>
+                 </ul>
+            </div>
+
+            <div class="entry">
+                 <div class="entry-header">
+                    <div>
+                         <h3 class="entry-title">Fisheries Technician - Yakima Basin</h3>
+                         <p class="entry-subtitle">United States Fish and Wildlife Service</p>
+                     </div>
+                      <div class="entry-header-right">
+                         <span class="entry-location">Yakima, WA</span>
+                         <span class="entry-date">May 2022 – July 2022</span>
+                         <span class="entry-details">GS-6 | 40+ hrs/wk<br>~$3,355/Mo.</span>
+                      </div>
+                </div>
+                <ul>
+                    <li>Assisted with duties described under the Fisheries Biologist role during transition period, supporting ongoing projects.</li>
+                </ul>
+            </div>
+
+             <div class="entry">
+                <div class="entry-header">
+                     <div>
+                        <h3 class="entry-title">Steelhead Creel Biologist, Willapa Drainage</h3>
+                        <p class="entry-subtitle">Washington Department of Fish and Wildlife</p>
+                     </div>
+                    <div class="entry-header-right">
+                        <span class="entry-location">Washington State</span>
+                        <span class="entry-date">Jan 2022 – Apr 2022</span>
+                        <span class="entry-details">Bio 1 | 40 hrs/wk<br>~$2,700/Mo.</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Supervised field technicians conducting creel surveys.</li>
+                    <li>Conducted creel surveys, engaging with anglers and the public.</li>
+                    <li>Performed data entry, management, and manipulation.</li>
+                    <li>Detected and removed coded wire tags (CWT) from sampled fish.</li>
+                    <li>Measured fish, collected scale and genetic samples.</li>
+                    <li>Operated remote camera traps for monitoring purposes.</li>
+                    <li>Conducted redd surveys for Steelhead and Pacific Lamprey.</li>
+                    <li>Operated catarafts for river access and surveys.</li>
+                    <li>Assisted with hatchery operations and fish culture (cleaning & feeding).</li>
+                    <li>Operated fish traps and ladders for monitoring and broodstock collection.</li>
+                    <li>Collected broodstock using tangle nets and angling methods.</li>
+                    <li>Performed live and dead spawning procedures.</li>
+                    <li>Reviewed fisheries management plans.</li>
+                </ul>
+            </div>
+
+             <div class="entry">
+                 <div class="entry-header">
+                    <div>
+                         <h3 class="entry-title">Graduate Teaching Assistant & Researcher</h3>
+                         <p class="entry-subtitle">Missouri State University</p>
+                      </div>
+                       <div class="entry-header-right">
+                          <span class="entry-location">Springfield, MO</span>
+                          <span class="entry-date">Jan 2020 – Jan 2022</span>
+                          <span class="entry-details">40 hrs/wk | ~$1,200/Mo.</span>
+                      </div>
+                 </div>
+
+                 <!-- Research Projects Section -->
+                 <h4>Research Projects</h4>
+
+                 <h5>Evaluating Hooking Mortality of Rainbow Trout (White/Norfork River, AR)</h5>
+                 <ul>
+                    <li>Supervised and mentored undergraduate volunteers during field sampling.</li>
+                    <li>Interacted with anglers and the public to gather data and provide project information.</li>
+                    <li>Applied Floy tags to track individual fish survival and movement.</li>
+                    <li>Operated, maintained, and trailered jet boats for river access.</li>
+                    <li>Managed project planning and logistics for field campaigns.</li>
+                    <li>Authored technical reports and contributed to publications.</li>
+                    <li>Managed data entry and performed statistical analysis.</li>
+                    <li>Designed experiments and constructed specialized sampling gear.</li>
+                    <li>Developed management recommendations based on research findings.</li>
+                 </ul>
+
+                 <h5>Tailwater Brown Trout Standard Weight Equation & Length-Categorization Standards</h5>
+                 <ul>
+                    <li>Communicated with various state agencies to acquire and share data.</li>
+                    <li>Manipulated and interpreted large datasets for analysis.</li>
+                    <li>Performed statistical analysis to develop weight-length relationships.</li>
+                    <li>Authored technical reports detailing methods and findings.</li>
+                 </ul>
+
+                  <h5>Assessment of Hypoxia Related Mortality of Striped Bass Fishery (Norfork Lake, AR)</h5>
+                 <ul>
+                    <li>Conducted boat electrofishing surveys to sample Striped Bass populations.</li>
+                    <li>Extracted, mounted, and processed otoliths for age determination.</li>
+                    <li>Monitored dissolved oxygen levels and fish respiration rates.</li>
+                    <li>Assessed survival rates in relation to environmental conditions.</li>
+                    <li>Collected age and length data for population analysis.</li>
+                 </ul>
+
+                <h5>Investigating Vital Rates of Upper Mississippi River Fishes</h5>
+                 <ul>
+                    <li>Assessed vital rates (growth, mortality) of select fish species.</li>
+                    <li>Collaborated with USFWS, USACE, USGS, UMER Ctr, and multiple state DNRs (MN, WI, IA, IL, MO).</li>
+                    <li>Extracted, processed, and aged otoliths from various fish species.</li>
+                    <li>Analyzed population distribution and habitat use patterns.</li>
+                 </ul>
+
+                <h5>Crappie Population Demographics (Tablerock and Stockton Lake)</h5>
+                 <ul>
+                    <li>Collaborated with the Missouri Department of Conservation (MDC).</li>
+                    <li>Extracted, processed, and aged otoliths from Crappie.</li>
+                    <li>Developed and applied population models to assess demographics.</li>
+                 </ul>
+
+                <h5>Fish Community Characteristic and Assemblage (Big Piney and Gasconade Rivers)</h5>
+                 <ul>
+                    <li>Sampled fish communities using various gears (hoop nets, fyke nets, electrofishing).</li>
+                    <li>Operated shallow water jet boats in riverine environments.</li>
+                    <li>Managed data entry for community analysis.</li>
+                 </ul>
+
+                <h5>Investigation of Asian Carp (Neosho River)</h5>
+                 <ul>
+                    <li>Interacted with the public and obtained landowner permission for access.</li>
+                    <li>Operated electrofishing boat for invasive species surveys and removal.</li>
+                    <li>Removed invasive Asian Carp species.</li>
+                    <li>Extracted otoliths and collected gametes for research purposes.</li>
+                    <li>Monitored the distribution of invasive species.</li>
+                 </ul>
+
+
+                <!-- Teaching Assistant Roles Section -->
+                <h4>Teaching Assistant Roles</h4>
+                 <ul>
+                    <li>Ichthyology</li>
+                    <li>Principals of Wildlife Management</li>
+                    <li>Fisheries Management</li>
+                    <li>Intro to Biology</li>
+                 </ul>
+            </div>
+
+
+             <div class="entry">
+                 <div class="entry-header">
+                    <div>
+                        <h3 class="entry-title">Fisheries Technician - PIBO Monitoring Program</h3>
+                        <p class="entry-subtitle">United States Forest Service</p>
+                     </div>
+                    <div class="entry-header-right">
+                        <span class="entry-location">St. Regis, MT</span>
+                        <span class="entry-date">May 2019 – Oct 2019</span>
+                        <span class="entry-details">GS-5 | 40+ hrs/wk<br>~$15/hr.</span>
+                    </div>
+                </div>
+                <ul>
+                    <li>Monitored habitat of ESA listed Salmonids using Pacfish/Infish Biological Opinion (PIBO) protocols.</li>
+                    <li>Conducted extensive stream habitat monitoring and assessment surveys.</li>
+                    <li>Planned logistics for extended backcountry stays (80+ hr. hitches), ensuring crew safety and efficiency.</li>
+                    <li>Collaborated effectively within small crews in remote settings with limited supervisor communication.</li>
+                    <li>Performed physically demanding fieldwork (50+ miles hiking/week) in challenging terrain, including bear country.</li>
+                </ul>
+            </div>
+
+
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                         <h3 class="entry-title">Fisheries Technician</h3>
+                         <p class="entry-subtitle">WV Dept. of Environmental Protection & WVU Wildlife Genetics Lab</p>
+                     </div>
+                     <div class="entry-header-right">
+                         <span class="entry-location">Morgantown, WV</span>
+                         <span class="entry-date">May–Aug 2017 & 2018</span>
+                         <span class="entry-details">40 hrs/wk | ~$10/hr.</span>
+                     </div>
+                </div>
+                 <ul>
+                    <li>Conducted eDNA sampling and backpack electrofishing surveys in streams to assess trout populations.</li>
+                    <li>Identified fish species encountered during surveys.</li>
+                    <li>Collected water quality and chemistry samples using field meters (e.g., YSI).</li>
+                    <li>Collected macroinvertebrate samples for water quality assessment.</li>
+                    <li>Performed rapid habitat evaluations using standardized protocols.</li>
+                    <li>Deployed and retrieved trotlines and gillnets for fish community sampling.</li>
+                </ul>
+            </div>
+
+        </section>
+
+
+         <section class="cv-section" id="skills">
+            <h2>Skills</h2>
+
+             <!-- Using H3 for categories within Skills -->
+             <div class="skills-category">
+                 <h3>Field & Survey Techniques</h3>
+                <ul class="skills-list">
+                    <li>Electrofishing (Boat, Backpack, Parallel wire)</li>
+                    <li>Netting (Hoop, Gill, Trammel, Onedia, Seining)</li>
+                    <li>eDNA Collection & Sampling</li>
+                    <li>External Fish Tagging (e.g., Floy)</li>
+                    <li>Internal Fish Tagging (PIT, Acoustic - Vemco/JSATS)</li>
+                    <li>Fish Surgery / Tag Implantation</li>
+                    <li>Snorkel Surveys (Day/Night, Visual ID)</li>
+                    <li>Habitat Monitoring & Assessment (PIBO protocols)</li>
+                    <li>Water Chemistry Sampling (YSI sondes)</li>
+                    <li>Macroinvertebrate Collection</li>
+                    <li>Zooplankton & Phytoplankton Collection</li>
+                    <li>Trotline Operation</li>
+                    <li>Redd Surveys</li>
+                    <li>Genetic Sample Collection & Handling</li>
+                </ul>
+            </div>
+
+             <div class="skills-category">
+                 <h3>Data Analysis & Software Proficiency</h3>
+                <ul class="skills-list">
+                    <li>Data Management, Manipulation & Analysis</li>
+                    <li>Statistical Analysis</li>
+                    <li>PTAGIS & Associated Software</li>
+                    <li>RStudio</li>
+                    <li>GIS / ArcMap</li>
+                    <li>GPS Operation & Data Management</li>
+                    <li>Microsoft Office Suite (Excel, Word, PowerPoint, Access)</li>
+                    <li>Github (Version Control)</li>
+                    <li>Biomark Device Manager</li>
+                    <li>Leveraging Artifical Intellegance</li>
+                </ul>
+            </div>
+
+            <div class="skills-category">
+                 <h3>Technical & Operational Skills</h3>
+                <ul class="skills-list">
+                    <li>Boat Operation & Maintenance (Jet, Prop)</li>
+                    <li>Trailer Operation (Loading, Hook-up, Driving, Maintenance)</li>
+                    <li>Raft, Drift Boat, Kayak, Canoe Operation</li>
+                    <li>Fish Ageing (Otolith Extraction, Preparation & Reading)</li>
+                    <li>Technical Report Writing & Development</li>
+                    <li>Public Speaking & Stakeholder Communication</li>
+                    <li>Supervision & Training of Staff/Volunteers</li>
+                    <li>Fieldwork Logistics & Planning (incl. Backcountry)</li>
+                    <li>Purchase & Travel Card Management</li>
+                    <li>Equipment Maintenance (Vehicles, Sampling Gear)</li>
+                </ul>
+            </div>
+
+             <div class="skills-category">
+                  <h3>Web Development</h3>
+                <ul class="skills-list">
+                    <!-- Added anchor tags with target="_blank" -->
+                    <li><a href="https://conman515.github.io/Manget_opus/" target="_blank" rel="noopener noreferrer">Manget Opus Project</a></li>
+                    <li><a href="https://conman515.github.io/BullTroutGrowth/" target="_blank" rel="noopener noreferrer">Bull Trout Growth Project</a></li>
+                    <li><a href="https://conman515.github.io/Anadromous_Chart/" target="_blank" rel="noopener noreferrer">Anadromous Chart Project</a></li>
+                </ul>
+            </div>
+        </section>
+
+         <section class="cv-section" id="certifications">
+             <h2>Certifications</h2>
+            <ul class="simple-list"> <!-- Use simple-list for consistent bullet style -->
+                <li>NOLS Wilderness First Responder</li>
+                <li>Adult/Child/Infant CPR, AED & Airway Management</li>
+                <li>Epinephrine Auto-injector</li>
+                <li>Motorboat Operator Certification Course (MOCC) - Non-motorized Endorsement</li>
+                <li>Chainsaw Operation Certification</li>
+                <li>ATV Operation Certification</li>
+            </ul>
+        </section>
+
+        <section class="cv-section" id="publications-presentations">
+            <h2>Publications & Presentations</h2>
+             <div class="entry"> <!-- Reuse entry structure for consistency -->
+                 <h3 class="entry-title" style="font-size: 1.1em; color: var(--secondary-text-color);">Publication</h3> <!-- Minor style override for subheading -->
+                 <p style="margin-top: 5px;">Cunningham, C., Graham, C., Kim, H., Phelps, Q. (2022). <a href="https://drive.google.com/file/d/1mD1JyK-NDZfqgsMB3Ncaw_rkG_DZau8C/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Rainbow Trout Growth and Survival on the Beaver Tailwater in Arkansas</a>. <em>Journal of the Southeastern Association of Fish and Wildlife Agencies.</em></p>
+            </div>
+            <div class="entry">
+                <h3 class="entry-title" style="font-size: 1.1em; color: var(--secondary-text-color);">Technical Reports</h3>
+                <p style="margin-top: 5px;">USFWS. (2024). Yakima Bull Trout Trap, Transport, and Monitoring Project.</p>
+                <p style="margin-top: 5px;">Interagency. (2024). <a href="https://drive.google.com/file/d/1Uik9xuGmB51FRKyigwXXVIQ-WDCwHcRD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">2024 Annual Report for USFWS Section 10 ES Recovery Permit #ES38362D-2</a>.</p> <!-- Link to Recovery Permit -->
+                <p style="margin-top: 5px;">USFWS. (2023).<a href="https://drive.google.com/file/d/1mwzMQeqviWSbCHBr1vym8GTjcx6-k2wr/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> Yakima Bull Trout Trap, Transport, and Monitoring Project.</a></p>
+                <p style="margin-top: 5px;">USFWS. (2022).<a href="https://drive.google.com/file/d/15b1KZHldKp1bkADqtJFI6dwJcSwu34iH/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> Yakima Bull Trout Trap, Transport, and Monitoring Project.</a></p>
+
+           </div>
+             <div class="entry">
+                 <h3 class="entry-title" style="font-size: 1.1em; color: var(--secondary-text-color);">Presentation</h3>
+                 <p style="margin-top: 5px;">Cunningham, C. (2025).<a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> PIT Tag Monitoring of KRD Supplementation Streams - 2024</a> <em>Kittitas Reclamation District Annual Meeting.</em> Ellensburg, WA.</p>
+                 <p style="margin-top: 5px;">Cunningham, C. (2024).<a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> Maintaining Connectivity using Trap and Haul for Yakima Basin Bull Trout </a><em>Salvelinus Confluentus Curiousity Society.</em> Winthrop, WA.</p>
+                 <p style="margin-top: 5px;">Cunningham, C. (2023). Kachess Reservoir Acoustic Telemetry . <em>Bull Trout Work Group Meeting.</em> Yakima, WA.</p>
+                 <p style="margin-top: 5px;">Cunningham, C. (2021). Rainbow Trout Growth and Survival on the Beaver Tailwater in Arkansas. <em>National American Fisheries Society Annual Meeting.</em> Baltimore, MD.</p>
+            </div>
+
+        </section>
+
+         <section class="cv-section" id="volunteer">
+             <h2>Volunteer Experience</h2>
+             <div class="entry"> <!-- Can use entry styling without the header for clean separation -->
+                 <h3 style="font-size: 1.1em; color: var(--secondary-text-color);">Professional Volunteer Experience</h3> <!-- Using style similar to Publication/Presentation heading -->
+                 <ul class="simple-list">
+                    <li><strong>Washington Department of Fish and Wildlife</strong> Capture and tagging of Walleye in the Columbia River.</li>
+                     <li><strong>Arkansas Game and Fish Commission:</strong> Norfork River & Dry Run Creek seasonal Trout population assessments, Striped Bass fish kill investigations, Freeze branding/marking (Brown Trout), PIT tagging (Brown, Rainbow, Cutthroat Trout).</li>
+                     <li><strong>Canaan Valley National Wildlife Refuge:</strong> Electrofishing (native Brook Trout), Physical removal (non-native Brown Trout).</li>
+                     <li><strong>West Virginia University Graduate Students:</strong> Brook Trout electrofishing, Hematocrit testing (minnow spp.), Smallmouth Bass gastric lavage & BIA, Smallmouth scale collection/preparation/aging.</li>
+                  </ul>
+             </div>
+             <div class="entry">
+                  <h3 style="font-size: 1.1em; color: var(--secondary-text-color);">General Volunteer Work</h3>
+                 <ul class="simple-list">
+                    <li>Stream Clean-Ups</li>
+                    <li>Project Healing Waters - Guiding</li>
+                    <li>Trout Unlimited - Stocking, habitat restoration</li>
+                    <li>Bass Pro Outdoor Days - Verbal presentations and outreach</li>
+                </ul>
+             </div>
+        </section>
+
+         <section class="cv-section" id="affiliations">
+             <h2>Professional Affiliations</h2>
+             <ul class="simple-list">
+                <li>American Fisheries Society (AFS)</li>
+                <li>Trout Unlimited</li>
+            </ul>
+        </section>
+
+
+         <section class="cv-section" id="references">
+            <h2>References</h2>
+             <div class="references-list">
+                <div class="ref-entry">
+                    <p><strong>Jason Romine, Ph.D.</strong></p>
+                    <p>Senior Scientist, Klienschmidt Group</p>
+                    <p><a href="mailto:Jason.Romine@kleinschmidtgroup.com">Jason.Romine@kleinschmidtgroup.com</a> | <a href="tel:971-266-5395">(971)-266-5395</a></p>
+                </div>
+                 <div class="ref-entry">
+                     <p><strong>Quinton Phelps</strong></p>
+                     <p>Research Professor, Missouri State University</p>
+                     <p><a href="mailto:QuintonPhelps@MissouriState.edu">QuintonPhelps@MissouriState.edu</a> | <a href="tel:605-695-0593">(605)-695-0593</a></p>
+                 </div>
+                 <div class="ref-entry">
+                    <p><strong>Christy Graham</strong></p>
+                    <p>Trout Management Program Supervisor, Arkansas Game and Fish Commission</p>
+                    <p><a href="mailto:christy.graham@agfc.ar.gov">christy.graham@agfc.ar.gov</a> | <a href="tel:870-404-0477">(870)-404-0477</a></p>
+                 </div>
+            </div>
+        </section>
+
+    </div> <!-- End CV Container -->
+
+</body>
+</html>
