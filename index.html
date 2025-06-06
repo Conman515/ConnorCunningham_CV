@@ -361,7 +361,21 @@
                   margin-bottom: 5px;
                   font-size: 0.85em;
              }
-         }
+        }
+
+        /* Image preview on link hover */
+        .link-preview {
+            position: absolute;
+            display: none;
+            max-width: 250px;
+            max-height: 150px;
+            pointer-events: none;
+            border: 1px solid var(--border-color);
+            background-color: var(--container-bg);
+            padding: 4px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
 
     </style>
 </head>
@@ -429,7 +443,7 @@
 
                 <h4>PIT Tag Monitoring & Infrastructure</h4>
                 <ul>
-                    <li>Monitor <a href="https://drive.google.com/file/d/1ptFv9aI9Qd1ZXiV0sJLTWcyedDj0BVhT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Bull Trout</a>, <a href="https://drive.google.com/file/d/13A0IOJyqFTH2ARNfsdevRKqYlrAI88hl/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Steelhead</a>, and <a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Salmon </a>populations using PIT tag technology.</li>
+                    <li>Monitor <a href="https://drive.google.com/file/d/1ptFv9aI9Qd1ZXiV0sJLTWcyedDj0BVhT/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-img="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEfUlEQVR42u1ZA7QsRxC9sY1/YjuZrt7n2LZt27Ztm9s1E9u2bdu2k3u297zJ6gyeJuffx1Wrqm7dqsZw/N9QRilQmC0cZNcygoWvRMf0FyOYFACuQudEGIo4EBhRISso5C6F/F3z845CXlPIdwr5SiGvO8jhl8FOg6EAhVlWYZ/jYlP+/O4goUJOV9hTzkLbKBhI0C0UxnExffTzYAjZ4G9ghIE49W0V8muzxYSQTxX2Sge5xMEe4mD2CCF7VU5bblXI9y0+e1uEtvHQX+BCWkz+vkJ2uwALjo4WiNAzRgi7ioPc32Ssxy7DXBOgr8HFNZnw+UpgykxIAboLGUshvzQY83F/EH2DEGYhhfzVYKIT8vqtgyyokB8ajH0i+gJkCNLffwc3HyvMzhHMFH2UP5ZUyB81G/irDFkMWeEXhxBm3fjADvLQJWibrB/i64AGVngqs4UdjL0JM45GH48NeA2fQz8gwhyjKuTF2FzfKORzhTV5/POeXpaxdyYPrMyxtnpsvl3IVhHaps5sgdhpvJmFnyPY2RWyIwOSLhLCLEHp0fz9q42kkE/8nN872HaFmTmDOUszKuScWNDujBS4GjJ+CLmc+sfBnOFg11PIaiHslgpzRASRFnR9QcwKW16KYEqkxbXoGhajtj/KaJsVCcFERX3kIGdzI40X2TZDs9eoZHsJwy5/LWYZJ4v7rNR7+laRAlw4E1v2uAvmi7nu0Vmz7kXVQSKU2pAQDDqFfZK+nCPjd8Qo+/Csgu1iP8gPaXhYYe5QmI2QAwzcmAXeZtBnOYWz/ACvIyEYJ1SpEeYYO427tHIhuiOIrBugYkyRSZdWyFtpq7kG46xYtb6DXSTXBkiFKdxnZYV87WAnz1lvLO43cPdVrKezgKbzGzg1paokd8+fUDpMSMptsIGTPYUekolCCSaxtJKWmVohfzrY/RJm6R7UgLyvkG8V8lMZcw67Hm1jZmWC89JagIgg1yvkXUrwRslLUeq+GMFYLeLoNhY4IczBZL+7seDIWUXVSd4CNyEhOFlU0fW/NeJvnqYiKLVwwbV9rX0RfMWWR4XuXW1/lNE2cUKrrUq/dpBt6EoKuz4SgEmPbucrvgepw5AXXExvJraTJNVAIeaaP4Lp9Hrmdwq3Vi7jmetxP9f1yX0+gRqNaaE10/A6qzXfXtyQkjiEfERNE8IuSlniafJohdzr5/iSrZo+7wkp7HtZApkg/YWQw9gfUphzFfJSTc37A4slB7t94joju5wwP9Ov6SLpLRnMQm1EdcvOBlkogogXe/0LJqSaAvusvO3IyzDX9D459Tt840lejQmre3yQFQchZLOYBT4hTaJA8K0O83JsE5ujaOBNS2wDT/gALBYUclm13efVZrFABqnmBRYtnruLBfJ37HLiQd+lKxb8Zd6fFVo1O6GI8F22X5mhWfgwQxeVmb7xYu8WhzmnKqA7BXNWcwQLIC+biwV/YXekv+d6W2GOLZzc8KpzOnahFfKjwt7nO8rFw6XoGpdXUqwBQsjxFS0VlJp064bjH0xf9BdY2cL/AAAAAElFTkSuQmCC">Bull Trout</a>, <a href="https://drive.google.com/file/d/13A0IOJyqFTH2ARNfsdevRKqYlrAI88hl/view?usp=drive_link" target="_blank" rel="noopener noreferrer" data-img="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAEfUlEQVR42u1ZA7QsRxC9sY1/YjuZrt7n2LZt27Ztm9s1E9u2bdu2k3u297zJ6gyeJuffx1Wrqm7dqsZw/N9QRilQmC0cZNcygoWvRMf0FyOYFACuQudEGIo4EBhRISso5C6F/F3z845CXlPIdwr5SiGvO8jhl8FOg6EAhVlWYZ/jYlP+/O4goUJOV9hTzkLbKBhI0C0UxnExffTzYAjZ4G9ghIE49W0V8muzxYSQTxX2Sge5xMEe4mD2CCF7VU5bblXI9y0+e1uEtvHQX+BCWkz+vkJ2uwALjo4WiNAzRgi7ioPc32Ssxy7DXBOgr8HFNZnw+UpgykxIAboLGUshvzQY83F/EH2DEGYhhfzVYKIT8vqtgyyokB8ajH0i+gJkCNLffwc3HyvMzhHMFH2UP5ZUyB81G/irDFkMWeEXhxBm3fjADvLQJWibrB/i64AGVngqs4UdjL0JM45GH48NeA2fQz8gwhyjKuTF2FzfKORzhTV5/POeXpaxdyYPrMyxtnpsvl3IVhHaps5sgdhpvJmFnyPY2RWyIwOSLhLCLEHp0fz9q42kkE/8nN872HaFmTmDOUszKuScWNDujBS4GjJ+CLmc+sfBnOFg11PIaiHslgpzRASRFnR9QcwKW16KYEqkxbXoGhajtj/KaJsVCcFERX3kIGdzI40X2TZDs9eoZHsJwy5/LWYZJ4v7rNR7+laRAlw4E1v2uAvmi7nu0Vmz7kXVQSKU2pAQDDqFfZK+nCPjd8Qo+/Csgu1iP8gPaXhYYe5QmI2QAwzcmAXeZtBnOYWz/ACvIyEYJ1SpEeYYO427tHIhuiOIrBugYkyRSZdWyFtpq7kG46xYtb6DXSTXBkiFKdxnZYV87WAnz1lvLO43cPdVrKezgKbzGzg1paokd8+fUDpMSMptsIGTPYUekolCCSaxtJKWmVohfzrY/RJm6R7UgLyvkG8V8lMZcw67Hm1jZmWC89JagIgg1yvkXUrwRslLUeq+GMFYLeLoNhY4IczBZL+7seDIWUXVSd4CNyEhOFlU0fW/NeJvnqYiKLVwwbV9rX0RfMWWR4XuXW1/lNE2cUKrrUq/dpBt6EoKuz4SgEmPbucrvgepw5AXXExvJraTJNVAIeaaP4Lp9Hrmdwq3Vi7jmetxP9f1yX0+gRqNaaE10/A6qzXfXtyQkjiEfERNE8IuSlniafJohdzr5/iSrZo+7wkp7HtZApkg/YWQw9gfUphzFfJSTc37A4slB7t94joju5wwP9Ov6SLpLRnMQm1EdcvOBlkogogXe/0LJqSaAvusvO3IyzDX9D459Tt840lejQmre3yQFQchZLOYBT4hTaJA8K0O83JsE5ujaOBNS2wDT/gALBYUclm13efVZrFABqnmBRYtnruLBfJ37HLiQd+lKxb8Zd6fFVo1O6GI8F22X5mhWfgwQxeVmb7xYu8WhzmnKqA7BXNWcwQLIC+biwV/YXekv+d6W2GOLZzc8KpzOnahFfKjwt7nO8rFw6XoGpdXUqwBQsjxFS0VlJp064bjH0xf9BdY2cL/AAAAAElFTkSuQmCC">Steelhead</a>, and <a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Salmon </a>populations using PIT tag technology.</li>
                     <li>Construct, operate, and maintain PIT tag interrogation sites (n = ~50).</li>
                     <li>Improve and develop PIT tag detection infrastructure and methodologies.</li>
                     <li>Manage, manipulate, and analyze PIT tag data using PTAGIS and associated software.</li>
@@ -829,6 +843,38 @@
         </section>
 
     </div> <!-- End CV Container -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const previewImg = document.createElement('img');
+            previewImg.className = 'link-preview';
+            document.body.appendChild(previewImg);
+
+            function showPreview(e) {
+                const src = e.currentTarget.getAttribute('data-img');
+                if (src) {
+                    previewImg.src = src;
+                    previewImg.style.display = 'block';
+                    position(e);
+                }
+            }
+
+            function hidePreview() {
+                previewImg.style.display = 'none';
+            }
+
+            function position(e) {
+                previewImg.style.top = (e.pageY + 15) + 'px';
+                previewImg.style.left = (e.pageX + 15) + 'px';
+            }
+
+            document.querySelectorAll('a[data-img]').forEach(function(a) {
+                a.addEventListener('mouseenter', showPreview);
+                a.addEventListener('mousemove', position);
+                a.addEventListener('mouseleave', hidePreview);
+            });
+        });
+    </script>
 
 </body>
 </html>
