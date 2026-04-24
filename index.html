@@ -1,825 +1,1469 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Connor Cunningham</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-font: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            --heading-font: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connor Cunningham — Fisheries Biologist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
-            /* Premium Dark Theme Palette */
-            --bg-color: #121821; /* Even darker, slightly bluer background */
-            --container-bg: #1a202c; /* Dark blue/gray container */
-            --primary-text-color: #f7fafc; /* Almost white for high contrast */
-            --secondary-text-color: #a0aec0; /* Medium gray */
-            --muted-text-color: #718096;    /* Darker gray */
-            --accent-color: #dd6b20;       /* Deep Orange - slightly richer */
-            --link-color: #63b3ed;         /* Light Blue */
-            --link-hover-color: #90cdf4;   /* Slightly lighter blue on hover */
-            --border-color: #2d3748;       /* Subtle border, darker than container */
-        }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Basic Reset & Premium Font Smoothing */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
+    :root {
+      --cream:      #f4f1eb;
+      --cream-deep: #ece8df;
+      --navy:       #1a2e1a;
+      --copper:     #7a4a2a;
+      --copper-lt:  #7a4a2a14;
+      --copper-mid: #c07a50;
+      --stone:      #8a8a7a;
+      --ink:        #1a1814;
+      --ink-soft:   #3a3630;
+      --ink-muted:  #6a6660;
+      --border:     #dedad2;
+      --border-dk:  #ccc8be;
+      --sidebar-w:  290px;
+      --white:      #ffffff;
+    }
 
-        html {
-            scroll-behavior: smooth; /* Smooth scrolling effect */
-        }
+    html { scroll-behavior: smooth; font-size: 19.25px; }
 
-        body {
-            font-family: var(--primary-font);
-            font-weight: 400;
-            line-height: 1.8; /* Slightly more generous line height */
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-             /* Subtle gradient for depth */
-            background-image: linear-gradient(180deg, var(--bg-color) 0%, #0f131a 100%);
-            color: var(--primary-text-color);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-             min-height: 100vh; /* Ensure gradient covers full height */
-        }
+    /* ── LOAD & SCROLL ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(-16px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
 
-        /* Container - More Breathing Room & Refined Shadow */
-        .cv-container {
-            max-width: 980px; /* Slightly wider for a premium feel */
-            margin: 60px auto; /* More vertical space */
-            padding: 60px 70px; /* More internal padding */
-            background-color: var(--container-bg);
-            border-radius: 8px; /* Slightly larger radius */
-             /* Softer, more layered shadow for dark theme */
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid var(--border-color);
-        }
+    /* Hero loads in on page ready */
+    .hero-eyebrow { animation: fadeIn 0.6s ease both; animation-delay: 0.1s; opacity: 0; }
+    .hero h1      { animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) both; animation-delay: 0.2s; opacity: 0; }
+    .hero-rule    { animation: slideRight 0.6s ease both; animation-delay: 0.55s; opacity: 0; }
+    .hero-summary { animation: fadeUp 0.7s ease both; animation-delay: 0.65s; opacity: 0; }
 
-        /* Header - Elevated Typography */
-        .cv-header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 40px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .cv-header h1 {
-            font-family: var(--heading-font);
-            font-weight: 700; /* Bolder */
-            font-size: 3em; /* Slightly larger */
-            color: var(--primary-text-color);
-            margin: 0 0 10px 0;
-            letter-spacing: -1px;
-        }
-         .cv-header .professional-title {
-             font-family: var(--heading-font);
-             font-size: 1.4em; /* More prominent */
-             font-weight: 400;
-             color: var(--accent-color); /* Orange accent */
-             margin: 0 0 25px 0; /* Adjusted spacing */
-             letter-spacing: 0.5px;
-         }
-        .cv-header p {
-            margin: 10px 0; /* More space */
-            font-size: 1.1em;
-            color: var(--secondary-text-color);
-        }
-        /* Premium Link Hover Effect */
-        .cv-header a, .cv-section p a, .cv-section li a, .references-list a {
-            color: var(--link-color);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: color 0.25s ease-in-out, border-bottom-color 0.25s ease-in-out;
-            padding-bottom: 1px; /* Add tiny space for underline effect */
-        }
-        .cv-header a:hover, .cv-section p a:hover, .cv-section li a:hover, .references-list a:hover {
-            color: var(--link-hover-color);
-            border-bottom-color: var(--link-hover-color);
-        }
+    /* Sidebar items stagger in */
+    .sidebar-monogram { animation: fadeIn 0.5s ease both; animation-delay: 0.05s; opacity: 0; }
+    .sidebar-name     { animation: fadeIn 0.6s ease both; animation-delay: 0.15s; opacity: 0; }
+    .sidebar-title    { animation: fadeIn 0.6s ease both; animation-delay: 0.25s; opacity: 0; }
+    .sidebar nav      { animation: fadeIn 0.7s ease both; animation-delay: 0.35s; opacity: 0; }
+    .sidebar-contact  { animation: fadeIn 0.7s ease both; animation-delay: 0.45s; opacity: 0; }
 
-        /* Section Styling - Refined Appearance */
-        .cv-section {
-            margin-bottom: 50px;
-        }
-        .cv-section h2 { /* Section Titles */
-            font-family: var(--heading-font);
-            font-weight: 600;
-            font-size: 1.8em;
-            color: var(--primary-text-color);
-            margin-bottom: 35px; /* More space below title */
-            padding-bottom: 18px; /* Increased padding */
-            border-bottom: 3px solid var(--accent-color); /* Thicker accent border */
-            display: inline-block;
-             letter-spacing: 1px; /* More spacing */
-             text-transform: uppercase;
-        }
-         .cv-section h3 { /* Subcategory Titles */
-            font-family: var(--heading-font);
-            font-size: 1.4em; /* Larger */
-            color: var(--primary-text-color);
-            font-weight: 600;
-            margin-top: 35px;
-            margin-bottom: 20px; /* Increased space */
-        }
+    /* Scroll-reveal base state */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
 
-        /* Entry Styling - Clearer Hierarchy */
-        .entry {
-            margin-bottom: 35px;
-            position: relative;
-        }
-        .entry-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
-        }
-        .entry-title { /* Job Title / Degree Name */
-            font-family: var(--heading-font); /* Use heading font for job titles */
-            font-size: 1.25em; /* Slightly larger */
-            font-weight: 700;
-            color: var(--primary-text-color);
-            margin: 0 0 5px 0;
-            flex-basis: 70%;
-        }
-        .entry-subtitle { /* Employer / University */
-            font-size: 1.15em; /* Larger */
-            font-style: normal;
-            color: var(--secondary-text-color);
-            font-weight: 400;
-            margin: 0 0 8px 0;
-             flex-basis: 70%;
-        }
-         .entry-minor-detail, .entry-detail { /* Specific detail / Minor */
-             font-size: 1em;
-             color: var(--muted-text-color);
-             margin: 4px 0 10px 0;
-             font-weight: 300; /* Lighter */
-              flex-basis: 70%;
-         }
-         .entry-header-right {
-            text-align: right;
-            flex-shrink: 0;
-            margin-left: 20px;
-             padding-top: 2px; /* Align better with title */
-         }
-        .entry-date, .entry-location, .entry-details {
-            font-size: 0.95em; /* Slightly larger */
-            color: var(--muted-text-color);
-            font-weight: 400;
-            display: block;
-            margin-bottom: 4px;
-            line-height: 1.5; /* Tighter for meta details */
-        }
-         .entry h4 { /* Project/Task subheadings - using accent */
-            font-family: var(--heading-font);
-            font-size: 1.1em;
-            font-weight: 600;
-            color: var(--accent-color); /* Use Accent for task titles */
-            margin-top: 25px;
-            margin-bottom: 15px;
-            letter-spacing: 0.4px;
-         }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      display: flex;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        /* List Styling - Increased Sophistication */
-        .entry ul, .simple-list {
-            list-style: none;
-            padding-left: 15px; /* More subtle indent */
-            margin-top: 10px;
-            margin-bottom: 25px;
-        }
-        .entry li, .simple-list li {
-            position: relative;
-            padding-left: 28px; /* Adjusted space for bullet */
-            margin-bottom: 12px; /* More space between points */
-             color: var(--secondary-text-color);
-        }
-        .entry li::before, .simple-list li::before {
-            content: '▪'; /* Square bullet for a modern look */
-            position: absolute;
-            left: 5px; /* Adjust position */
-            top: -1px; /* Fine-tune vertical alignment */
-            color: var(--accent-color); /* Orange bullets */
-            font-weight: 700;
-            font-size: 1.2em; /* Adjust size if needed */
-        }
-         .simple-list strong {
-            color: var(--primary-text-color);
-             font-weight: 600;
-         }
+    /* ═══════════════════════════════════
+       SIDEBAR
+    ═══════════════════════════════════ */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-height: 100vh;
+      background: var(--navy);
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      z-index: 100;
+      overflow-y: auto;
+    }
 
-         /* Skills Section - Premium Columns */
-        .skills-category {
-            margin-bottom: 30px;
-        }
-        .skills-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            column-count: 2;
-            column-gap: 60px; /* Increased gap */
-        }
-        .skills-list li {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 12px;
-            font-size: 1.05em; /* Slightly larger skills text */
-            color: var(--secondary-text-color);
-            break-inside: avoid-column;
-        }
-         .skills-list li::before {
-            content: '▪'; /* Consistent square bullet */
-            position: absolute;
-            left: 5px;
-            top: -1px;
-            color: var(--accent-color);
-            font-weight: 700;
-             font-size: 1.2em;
-        }
-        .skills-list li a {
-            word-break: break-all;
-        }
+    /* subtle texture overlay */
+    .sidebar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
 
+    .sidebar-inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 52px 36px 44px;
+    }
 
-        /* References Section - Elegant Divider */
-        .references-list .ref-entry {
-            margin-bottom: 25px;
-             border-left: 3px solid var(--accent-color); /* Orange accent border */
-             padding-left: 20px; /* Increased padding */
-        }
-        .references-list p {
-            margin: 3px 0;
-            line-height: 1.6;
-        }
-        .references-list strong {
-             font-family: var(--heading-font);
-             font-weight: 700; /* Bolder Name */
-             color: var(--primary-text-color);
-             font-size: 1.15em; /* Slightly larger */
-             display: block;
-             margin-bottom: 6px; /* More space */
-        }
+    .sidebar-monogram {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+      letter-spacing: 0.05em;
+    }
 
-        /* Responsive Design Adjustments (mostly maintaining proportions) */
-        @media (max-width: 900px) {
-             .cv-container {
-                 padding: 50px 50px;
-                 margin: 50px auto;
-             }
-             .skills-list {
-                 column-count: 1;
-             }
-         }
+    .sidebar-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.65rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
 
-        @media (max-width: 768px) {
-            .cv-container {
-                margin: 30px 15px;
-                padding: 40px 30px;
-            }
-             .cv-header h1 {
-                font-size: 2.5em;
-            }
-             .cv-header .professional-title {
-                 font-size: 1.2em;
-             }
-            .cv-section h2 {
-                font-size: 1.6em;
-                 padding-bottom: 15px;
-                 margin-bottom: 30px;
-            }
-             .cv-section h3 {
-                 font-size: 1.3em;
-             }
+    .sidebar-title {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--copper-mid);
+      margin-bottom: 44px;
+    }
 
-            /* Adjust entry stacking if needed, already handles okay */
-            .entry-header {
-                 flex-direction: column;
-                 align-items: flex-start;
-            }
-            .entry-header-right {
-                 text-align: left;
-                 margin-left: 0;
-                 margin-top: 10px; /* More space when stacked */
-            }
-            /* Minor tweaks for meta details if they wrap badly */
-            .entry-date, .entry-location, .entry-details {
-                 font-size: 0.9em;
-             }
-        }
+    .nav-label {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      margin-bottom: 10px;
+    }
 
-        @media (max-width: 480px) {
-            body {
-                line-height: 1.7; /* Readjust slightly */
-            }
-            .cv-container {
-                padding: 30px 25px;
-                margin: 20px 10px;
-                 border-radius: 6px;
-            }
-            .cv-header h1 {
-                font-size: 2em;
-            }
-             .cv-header .professional-title {
-                 font-size: 1.1em;
-                 margin-bottom: 20px;
-             }
-            .cv-header p {
-                font-size: 1em;
-            }
-             .cv-section h2 {
-                font-size: 1.4em;
-            }
-             .cv-section h3 {
-                 font-size: 1.2em;
-             }
-             .entry-title {
-                 font-size: 1.15em;
-             }
-              .entry-subtitle {
-                 font-size: 1.05em;
-             }
-              .entry h4 {
-                  font-size: 1.05em;
-              }
-            /* Ensure meta details stack cleanly */
-            .entry-date, .entry-location, .entry-details {
-                  display: block;
-                  margin-right: 0;
-                  margin-bottom: 5px;
-                  font-size: 0.85em;
-             }
-         }
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: rgba(255,255,255,0.38);
+      font-size: 0.82rem;
+      font-weight: 400;
+      padding: 7px 0 7px 14px;
+      margin-left: -14px;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      letter-spacing: 0.01em;
+    }
 
-    </style>
+    .nav-link:hover { color: rgba(255,255,255,0.7); }
+    .nav-link.active {
+      color: rgba(255,255,255,0.92);
+      border-left-color: var(--copper-mid);
+      font-weight: 500;
+    }
+
+    .nav-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin: 16px 0;
+    }
+
+    .sidebar-contact {
+      margin-top: auto;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .contact-item {
+      font-size: 0.74rem;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 7px;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
+    .contact-item a {
+      color: rgba(255,255,255,0.38);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ═══════════════════════════════════
+       MAIN
+    ═══════════════════════════════════ */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      padding: 80px 72px 140px;
+      min-width: 0;
+    }
+
+    /* ═══════════════════════════════════
+       HERO
+    ═══════════════════════════════════ */
+    .hero {
+      margin-bottom: 88px;
+      padding-bottom: 72px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5.5rem;
+      font-weight: 300;
+      line-height: 0.95;
+      color: var(--ink);
+      margin-bottom: 32px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--copper);
+    }
+
+    .hero-rule {
+      width: 48px;
+      height: 2px;
+      background: var(--copper);
+      margin-bottom: 28px;
+    }
+
+    .hero-summary {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--ink-soft);
+      max-width: 580px;
+      font-weight: 300;
+    }
+
+    /* ═══════════════════════════════════
+       SECTIONS
+    ═══════════════════════════════════ */
+    .section {
+      margin-bottom: 80px;
+      scroll-margin-top: 40px;
+    }
+
+    .section-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ═══════════════════════════════════
+       EDUCATION
+    ═══════════════════════════════════ */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .edu-card {
+      background: linear-gradient(145deg, #ffffff, color-mix(in oklch, var(--cream) 70%, #ffffff));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+    }
+
+    .edu-card:hover {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 12px 24px rgba(0,0,0,0.06), 0 30px 60px rgba(122,74,42,0.12);
+    }
+
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--copper), var(--copper-mid));
+    }
+
+    .edu-degree {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .edu-school {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--copper);
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+
+    .edu-meta {
+      font-size: 0.75rem;
+      color: var(--stone);
+      display: flex;
+      gap: 18px;
+    }
+
+    .edu-minor {
+      margin-top: 10px;
+      font-size: 0.73rem;
+      color: var(--stone);
+      font-style: italic;
+    }
+
+    /* ═══════════════════════════════════
+       PHOTO GALLERY
+    ═══════════════════════════════════ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .gallery-item {
+      aspect-ratio: 4/3;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      background: var(--cream-deep);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      display: block;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+      z-index: 1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item img.error-hidden { display: none; }
+
+    .gallery-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--cream-deep), #e8e2d8);
+    }
+
+    .gallery-fallback-icon {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+      opacity: 0.5;
+    }
+
+    .gallery-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(26,20,14,0.82));
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 20px 10px 10px;
+      letter-spacing: 0.03em;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .gallery-item:hover .gallery-label { opacity: 1; }
+
+    .gallery-item.wide { grid-column: span 2; }
+
+    /* ═══════════════════════════════════
+       TIMELINE
+    ═══════════════════════════════════ */
+    .timeline { position: relative; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--border), transparent);
+    }
+
+    .tl-entry {
+      padding-left: 40px;
+      margin-bottom: 56px;
+      position: relative;
+    }
+
+    .tl-entry::before {
+      content: '';
+      position: absolute;
+      left: -4px; top: 10px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--copper);
+      border: 2px solid var(--cream);
+      box-shadow: 0 0 0 1px var(--copper);
+    }
+
+    .tl-date {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--copper);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .tl-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .tl-org {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--copper);
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+    }
+
+    .tl-loc {
+      font-size: 0.75rem;
+      color: var(--stone);
+      margin-bottom: 20px;
+    }
+
+    .tl-group-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin: 28px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tl-tasks { list-style: none; }
+
+    .tl-task {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--ink-muted);
+      padding: 5px 0 5px 18px;
+      position: relative;
+      font-weight: 300;
+    }
+
+    .tl-task::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 13px;
+      width: 6px; height: 1px;
+      background: var(--copper);
+    }
+
+    .tl-task a {
+      color: var(--ink-soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border-dk);
+      transition: color 0.2s, text-decoration-color 0.2s;
+    }
+
+    .tl-task a:hover {
+      color: var(--copper);
+      text-decoration-color: var(--copper);
+    }
+
+    /* ═══════════════════════════════════
+       SKILLS
+    ═══════════════════════════════════ */
+    .skills-group { margin-bottom: 32px; }
+
+    .skills-group-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 14px;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .skill-tag {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 7px 15px;
+      font-size: 0.79rem;
+      color: var(--ink-soft);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      background: var(--copper-lt);
+      border-color: var(--copper);
+      color: var(--copper);
+    }
+
+    .skill-tag a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ═══════════════════════════════════
+       PUBLICATIONS
+    ═══════════════════════════════════ */
+    .pub-entry {
+      padding: 28px 32px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 14px;
+      transition: box-shadow 0.2s;
+    }
+
+    .pub-entry:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    }
+
+    .pub-type {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 10px;
+    }
+
+    .pub-text {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+
+    .pub-text + .pub-text { margin-top: 8px; }
+
+    .pub-text a {
+      color: var(--ink);
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border-dk);
+      transition: text-decoration-color 0.2s, color 0.2s;
+    }
+
+    .pub-text a:hover {
+      color: var(--copper);
+      text-decoration-color: var(--copper);
+    }
+
+    /* ═══════════════════════════════════
+       CERTIFICATIONS
+    ═══════════════════════════════════ */
+    .cert-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .cert-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 0.84rem;
+      color: var(--ink-soft);
+      font-weight: 300;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.2s;
+    }
+
+    .cert-item:hover { background: var(--copper-lt); }
+
+    .cert-dot {
+      width: 6px; height: 6px;
+      background: var(--copper);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════
+       VOLUNTEER
+    ═══════════════════════════════════ */
+    .vol-entry { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .vol-entry:last-child { border-bottom: none; }
+
+    .vol-org {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .vol-desc {
+      font-size: 0.855rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ═══════════════════════════════════
+       AFFILIATIONS
+    ═══════════════════════════════════ */
+    .affil-list { display: flex; gap: 12px; }
+
+    .affil-tag {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    /* ═══════════════════════════════════
+       REFERENCES
+    ═══════════════════════════════════ */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .ref-card {
+      background: linear-gradient(145deg, #ffffff, color-mix(in oklch, var(--cream) 70%, #ffffff));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+    }
+
+    .ref-card:hover {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 12px 24px rgba(0,0,0,0.06), 0 30px 60px rgba(122,74,42,0.12);
+    }
+
+    .ref-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 5px;
+    }
+
+    .ref-role {
+      font-size: 0.75rem;
+      color: var(--stone);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .ref-contact a {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--copper);
+      text-decoration: none;
+      margin-bottom: 4px;
+      transition: opacity 0.2s;
+    }
+
+    .ref-contact a:hover { opacity: 0.7; }
+
+    @media (max-width: 960px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 40px 28px 80px; }
+      .edu-grid, .ref-grid, .cert-list { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 3.8rem; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       ✦  PREMIUM LAYER  ✦
+    ═══════════════════════════════════════════════════════════ */
+    /* Film grain overlay — subtle, luxurious */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      opacity: 0.55;
+      mix-blend-mode: overlay;
+    }
+
+    /* Ambient animated glow behind hero */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; left: -120px;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, color-mix(in oklch, var(--copper) 28%, transparent), transparent 65%);
+      filter: blur(50px);
+      pointer-events: none;
+      z-index: -1;
+      animation: driftGlow 14s ease-in-out infinite alternate;
+    }
+    @keyframes driftGlow {
+      0%   { transform: translate(0, 0) scale(1); opacity: 0.7; }
+      100% { transform: translate(80px, 40px) scale(1.15); opacity: 1; }
+    }
+
+    /* Mouse-follow spotlight */
+    .spotlight {
+      position: fixed;
+      pointer-events: none;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in oklch, var(--copper) 12%, transparent), transparent 60%);
+      transform: translate(-50%, -50%);
+      mix-blend-mode: multiply;
+      z-index: 1;
+      transition: opacity 0.5s;
+      opacity: 0;
+      filter: blur(30px);
+    }
+    body:hover .spotlight { opacity: 1; }
+
+    /* Hero name — optical refinements + gradient sheen on hover */
+    .hero h1 {
+      font-feature-settings: "liga", "dlig", "kern";
+      text-rendering: geometricPrecision;
+    }
+    .hero h1 em {
+      background: linear-gradient(110deg, var(--copper) 0%, color-mix(in oklch, var(--copper) 60%, #e8b87a) 45%, var(--copper) 100%);
+      background-size: 200% 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: sheen 8s ease-in-out infinite;
+    }
+    @keyframes sheen {
+      0%, 100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    /* Drop cap for hero summary */
+    .hero-summary::first-letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.6em;
+      font-weight: 400;
+      float: left;
+      line-height: 0.85;
+      padding: 6px 12px 0 0;
+      color: var(--copper);
+      font-style: italic;
+    }
+
+    /* Copper sweep underline on links */
+    .tl-task a, .pub-text a {
+      position: relative;
+      text-decoration: none;
+      background-image: linear-gradient(var(--copper), var(--copper));
+      background-size: 0% 1px;
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s;
+      padding-bottom: 2px;
+    }
+    .tl-task a:hover, .pub-text a:hover {
+      background-size: 100% 1px;
+      color: var(--copper);
+    }
+
+    /* pub-entry — 3D tilt */
+    .pub-entry {
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+    }
+
+    /* Glass border gradient on card hover */
+    .edu-card::after, .ref-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(145deg, color-mix(in oklch, var(--copper) 40%, transparent), transparent 50%);
+      -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .edu-card:hover::after, .ref-card:hover::after { opacity: 1; }
+
+    /* Skill tag premium hover — shine sweep */
+    .skill-tag {
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(4px);
+    }
+    .skill-tag::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--copper) 20%, transparent), transparent);
+      transition: left 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .skill-tag:hover::before { left: 100%; }
+
+    /* Sidebar premium — subtle inner glow + refined blur */
+    .sidebar {
+      box-shadow:
+        inset -1px 0 0 rgba(255,255,255,0.04),
+        0 0 40px rgba(0,0,0,0.1);
+    }
+    .sidebar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 100%, color-mix(in oklch, var(--copper) 18%, transparent), transparent 70%);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* Nav link copper indicator — refined */
+    .nav-link {
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--copper), transparent);
+      transform: scaleY(0);
+      transform-origin: center;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .nav-link.active::before { transform: scaleY(1); }
+    .nav-link.active { border-left-color: transparent; }
+
+    /* Reading progress bar */
+    .read-progress {
+      position: fixed;
+      top: 0; left: var(--sidebar-w);
+      right: 0;
+      height: 2px;
+      z-index: 500;
+      background: transparent;
+      pointer-events: none;
+    }
+    .read-progress::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: var(--progress, 0%);
+      background: linear-gradient(90deg, transparent, var(--copper), color-mix(in oklch, var(--copper) 70%, #e8b87a));
+      transition: width 0.1s ease-out;
+      box-shadow: 0 0 12px color-mix(in oklch, var(--copper) 60%, transparent);
+    }
+
+    /* Timeline dot — animated pulse on first entry */
+    .tl-entry:first-child::before {
+      animation: pulseDot 2.4s ease-in-out infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { box-shadow: 0 0 0 1px var(--copper), 0 0 0 0 color-mix(in oklch, var(--copper) 40%, transparent); }
+      50%      { box-shadow: 0 0 0 1px var(--copper), 0 0 0 8px color-mix(in oklch, var(--copper) 0%, transparent); }
+    }
+
+    /* Section label — animated underline rule */
+    .section-label::after {
+      background: linear-gradient(90deg, var(--border), transparent);
+      transform-origin: left;
+      animation: labelLine 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+    @keyframes labelLine {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* Affil tags — glass premium */
+    .affil-tag {
+      background: linear-gradient(135deg, var(--navy), color-mix(in oklch, var(--navy) 80%, #000));
+      border: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .affil-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+    .affil-tag::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 0%, color-mix(in oklch, var(--copper) 20%, transparent), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .affil-tag:hover::before { opacity: 1; }
+
+    /* Cert card premium */
+    .cert-item {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .cert-item:hover {
+      transform: translateX(4px);
+      background: linear-gradient(90deg, var(--copper-lt), transparent);
+    }
+    .cert-dot {
+      box-shadow: 0 0 0 3px color-mix(in oklch, var(--copper) 20%, transparent);
+      transition: box-shadow 0.3s;
+    }
+    .cert-item:hover .cert-dot {
+      box-shadow: 0 0 0 5px color-mix(in oklch, var(--copper) 30%, transparent);
+    }
+
+    /* Hero rule shimmer */
+    .hero-rule {
+      background: linear-gradient(90deg, var(--copper) 0%, color-mix(in oklch, var(--copper) 50%, #e8b87a) 50%, var(--copper) 100%);
+      background-size: 200% 100%;
+      animation: sheen 4s ease-in-out infinite;
+    }
+
+    /* Monogram refinement */
+    .sidebar-monogram {
+      background: linear-gradient(145deg, transparent, color-mix(in oklch, var(--copper) 20%, transparent));
+      transition: border-color 0.4s, background 0.4s;
+    }
+    .sidebar-monogram:hover {
+      border-color: var(--copper) !important;
+      background: linear-gradient(145deg, transparent, color-mix(in oklch, var(--copper) 35%, transparent));
+    }
+
+    /* Accessibility: respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01s !important;
+        animation-delay: 0s !important;
+        transition-duration: 0.01s !important;
+      }
+      .spotlight, body::after { display: none; }
+      /* Force all reveal/animated-in content to be visible immediately */
+      .reveal,
+      .hero-eyebrow, .hero h1, .hero-rule, .hero-summary,
+      .sidebar-monogram, .sidebar-name, .sidebar-title,
+      .sidebar nav, .sidebar-contact, .sidebar-contact .contact-item,
+      .section-label, .section-label::after {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
+<div class="spotlight" id="spotlight"></div>
+<div class="read-progress" id="readProgress"></div>
 
-    <div class="cv-container">
-        <header class="cv-header">
-            <h1>Connor Cunningham</h1>
-             <p class="professional-title">Fisheries Biologist</p>
-            <p>690 Selah Heights Rd. Selah, WA. 98942</p>
-            <p>
-                <a href="tel:304-539-2862">304-539-2862</a> |
-                <a href="mailto:connorcunninghamwv@gmail.com">connorcunninghamwv@gmail.com</a>
-            </p>
-        </header>
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-inner">
+    <div class="sidebar-monogram">CC</div>
+    <div class="sidebar-name">Connor<br>Cunningham</div>
+    <div class="sidebar-title">Fisheries Biologist</div>
 
-        <section class="cv-section" id="education">
-            <h2>Education</h2>
-            <div class="entry">
-                <div class="entry-header">
-                    <!-- Group left-aligned text -->
-                    <div>
-                        <h3 class="entry-title">Master of Science in Biology</h3>
-                        <p class="entry-subtitle">Missouri State University</p>
-                        </div>
-                     <!-- Group right-aligned text -->
-                     <div class="entry-header-right">
-                         <span class="entry-location">Springfield, MO</span>
-                         <span class="entry-date">May 2025</span>
-                         <span class="entry-details">GPA: 3.64</span>
-                     </div>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-header">
-                     <div>
-                        <h3 class="entry-title">Bachelor of Science in Wildlife and Fisheries Biology</h3>
-                        <p class="entry-subtitle">West Virginia University</p>
-                        <p class="entry-details">Minor: Conservation Ecology</p> <!-- Using minor-detail class -->
-                     </div>
-                     <div class="entry-header-right">
-                        <span class="entry-location">Morgantown, WV</span>
-                        <span class="entry-date">May 2019</span>
-                        <span class="entry-details">GPA: 3.72</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <nav>
+      <div class="nav-label">Navigate</div>
+      <a class="nav-link active" href="#education">Education</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#publications">Publications</a>
+      <div class="nav-divider"></div>
+      <a class="nav-link" href="#certifications">Certifications</a>
+      <a class="nav-link" href="#volunteer">Volunteer</a>
+      <a class="nav-link" href="#affiliations">Affiliations</a>
+      <a class="nav-link" href="#references">References</a>
+    </nav>
 
-        <section class="cv-section" id="experience">
-            <h2>Work Experience</h2>
+    <div class="sidebar-contact">
+      <div class="contact-item">Selah, WA 98942</div>
+      <div class="contact-item"><a href="tel:304-539-2862">304-539-2862</a></div>
+      <div class="contact-item"><a href="mailto:connorcunninghamwv@gmail.com">connorcunninghamwv@gmail.com</a></div>
+    </div>
+  </div>
+</aside>
 
-            <div class="entry">
-                <div class="entry-header">
-                     <div>
-                         <h3 class="entry-title">Fisheries Biologist - Yakima Basin</h3>
-                         <p class="entry-subtitle">United States Fish and Wildlife Service</p>
-                    </div>
-                    <div class="entry-header-right">
-                         <span class="entry-location">Yakima, WA</span>
-                         <span class="entry-date">July 2022 – Current</span>
-                         <span class="entry-details">GS-7/9 | 40+ hrs/wk<br>~$5262/Mo.</span>
-                    </div>
-                </div>
+<!-- MAIN -->
+<main class="main">
 
-                <h4>PIT Tag Monitoring & Infrastructure</h4>
-                <ul>
-                    <li>Monitor <a href="https://drive.google.com/file/d/1ptFv9aI9Qd1ZXiV0sJLTWcyedDj0BVhT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Bull Trout</a>, <a href="https://drive.google.com/file/d/13A0IOJyqFTH2ARNfsdevRKqYlrAI88hl/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Steelhead</a>, and <a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Salmon </a>populations using PIT tag technology.</li>
-                    <li>Construct, operate, and maintain PIT tag interrogation sites (n = ~50).</li>
-                    <li>Improve and develop PIT tag detection infrastructure and methodologies.</li>
-                    <li>Manage, manipulate, and analyze PIT tag data using PTAGIS and associated software.</li>
-                    <li>Evaluate population trends, habitat improvement project effectiveness, etc., using PIT tag data.</li>
-                    <li>Inform stakeholders of current PIT tag trends via reports, presentations, and informal communications.</li>
-                </ul>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">Curriculum Vitae &nbsp;·&nbsp; April 2026</div>
+    <h1>Connor<br><em>Cunningham</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-summary">
+      Fisheries biologist with six-plus years of field and research experience specializing in salmonid ecology, PIT tag and acoustic telemetry monitoring, and population assessment across the Pacific Northwest. Combining rigorous science with hands-on conservation.
+    </p>
+  </section>
 
-                <h4>Acoustic Telemetry</h4>
-                <ul>
-                    <li><a href="https://drive.google.com/file/d/1oKHQ0uou-MQUapzQFozbqIxRJHF_RnfG/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Conduct acoustic telemetry studies</a> on Bull Trout.</li>
-                    <li>Perform <a href="https://drive.google.com/file/d/1oCLQLmUYqHF_WffaTJwfuFEZPvOfGZFm/view?usp=drive_link" target="_blank" rel="noopener noreferrer">surgical implantation</a> of acoustic tags (Vemco & JSATS).</li>
-                    <li><a href="https://drive.google.com/file/d/15ohotWKskI5fRo__bqyaOf9Bn-CIUP2Z/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Deploy, operate, and retrieve acoustic receivers</a> in various aquatic environments.</li>
-                    <li>Manage, manipulate, and analyze acoustic telemetry data to assess fish movement and behavior.</li>
-                </ul>
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <div class="section-label reveal">Education</div>
+    <div class="edu-grid">
+      <div class="edu-card reveal reveal-delay-1">
+        <div class="edu-degree">Master of Science in Biology</div>
+        <div class="edu-school">Missouri State University</div>
+        <div class="edu-meta">
+          <span>Springfield, MO</span>
+          <span>May 2025</span>
+          <span>GPA 3.64</span>
+        </div>
+      </div>
+      <div class="edu-card reveal reveal-delay-2">
+        <div class="edu-degree">B.S. Wildlife &amp; Fisheries Biology</div>
+        <div class="edu-school">West Virginia University</div>
+        <div class="edu-meta">
+          <span>Morgantown, WV</span>
+          <span>May 2019</span>
+          <span>GPA 3.72</span>
+        </div>
+        <div class="edu-minor">Minor: Conservation Ecology</div>
+      </div>
+    </div>
+  </section>
 
-                <h4>Trap and Haul Operations</h4>
-                <ul>
-                    <li>Collect Bull Trout using various methods (<a href="https://drive.google.com/file/d/192G13XBOzU14q9LjTe8u6B0tZvhm2asr/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Hook and line</a>, <a href="https://drive.google.com/file/d/1zDx2yelUX4X-x4OopYsxLy_gd0J_FC29/view?usp=drive_link" target="_blank" rel="noopener noreferrer">tangle net</a>, weir).</li>
-                    <li>Collect and transport genetic samples according to established protocols.</li>
-                    <li><a href="https://drive.google.com/file/d/1HJLxFdpxtHW7konGSe3YehnfzMZqtiaA/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Implant PIT tags</a> in captured fish for tracking purposes.</li>
-                    <li>Coordinate trap and haul logistics through intra and interagency communication.</li>
-                </ul>
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section-label reveal">Work Experience</div>
+    <div class="timeline">
 
-                 <h4>Mussel Surveys</h4>
-                 <ul>
-                    <li>Conduct <a href="https://drive.google.com/file/d/1HhcBYdMg8dV12SsgazD2SbUEAzFwWNk8/view?usp=drive_link" target="_blank" rel="noopener noreferrer">large-scale eDNA</a> collection and sampling for mussel surveys.</li>
-                    <li>Perform <a href="https://drive.google.com/file/d/1kuXxdRM8S2BA9ql7BiN3P_KtWB7TVauG/view?usp=drive_link" target="_blank" rel="noopener noreferrer">visual snorkel surveys</a> for various mussel species, including kayaking in small woody streams.</li>
-                 </ul>
-                 <h4>Gold Creek Monitoring</h4>
-                 <ul>
-                    <li>Executed Gold Creek Bull Trout snorkel surveys, including<a href="https://drive.google.com/file/d/1d1uqXX5N1rvYInSBENxTVqX4F22Izum0/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> night snorkeling</a>/hiking and underwater species identification.</li>
-                 </ul>
-                 <h4>North Fork Tieton Parentage Study</h4>
-                 <ul>
-                    <li>Led juvenile Bull Trout electrofishing, night snorkeling/dip netting, and genetics sampling.</li>
-                 </ul>
-                 <h4>Cle Elum Sockeye Smolt Trap and Haul</h4>
-                 <ul>
-                    <li>Set and fished <a href="https://drive.google.com/file/d/11QwCCFrVx7v4lpyj4huroJaQpg3TzSxF/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Oneida nets</a></li>
-                    <li>Coordinated USFWS, WDFW, Yakama Nation, and Bureau of Reclamation</li>
-                    <li>Trained staff and volunteers on how to operate and collect <a href="https://drive.google.com/file/d/1XiPV-WQK_qjtJjSFaLjbdS_iGQHaQcGm/view?usp=drive_link" target="_blank" rel="noopener noreferrer">smolts</a> from nets</li>
-                 </ul>
-                 <h4>Various</h4>
-                 <ul>
-                    <li>Perform Bull Trout dewatering rescues and <a href="https://drive.google.com/file/d/1EKnD7y6SV4223BW7X0drgJtqMgSfpKfh/view?usp=drive_link" target="_blank" rel="noopener noreferrer">redd surveys</a>.</li>
-                    <li>Assist with <a href="https://drive.google.com/file/d/1XQkExoBZEyYr8Bk6HK4FCk_jHrMUpmqJ/view?usp=drive_link" target="_blank" rel="noopener noreferrer">flume construction</a> for fish passage.</li>
-                    <li>Assist BOR staff with fish recovery in <a href="https://drive.google.com/file/d/1J8EZpAhZtA-2rQiExsyB-pfdlhjqINxg/view?usp=drive_link" target="_blank" rel="noopener noreferrer">irrigation infrastructure</a></li>
-                    <li>Assist Hatchery staff with <a href="https://drive.google.com/file/d/1csIgQqvCQM3IPl7DTh2lV-3QHKTTeNT3/view?usp=drive_link" target="_blank" rel="noopener noreferrer">various tasks</a></li>
-                 </ul>
+      <div class="tl-entry reveal">
+        <div class="tl-date">July 2022 – Present</div>
+        <div class="tl-role">Fisheries Biologist — Yakima Basin</div>
+        <div class="tl-org">United States Fish and Wildlife Service</div>
+        <div class="tl-loc">Yakima, WA &nbsp;·&nbsp; GS-7/9 &nbsp;·&nbsp; 40+ hrs/wk &nbsp;·&nbsp; ~$5,262/mo.</div>
+        <ul class="tl-tasks">
+          <div class="tl-group-label">PIT Tag Monitoring &amp; Infrastructure</div>
+          <li class="tl-task">Monitor <a href="https://drive.google.com/file/d/1ptFv9aI9Qd1ZXiV0sJLTWcyedDj0BVhT/view" target="_blank">Bull Trout</a>, <a href="https://drive.google.com/file/d/13A0IOJyqFTH2ARNfsdevRKqYlrAI88hl/view" target="_blank">Steelhead</a>, and <a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view" target="_blank">Salmon</a> populations using PIT tag technology across ~50 interrogation sites.</li>
+          <li class="tl-task">Construct, operate, and maintain PIT tag interrogation sites; improve and develop detection infrastructure and methodologies.</li>
+          <li class="tl-task">Manage, manipulate, and analyze PIT tag data using PTAGIS; evaluate population trends and habitat improvement project effectiveness.</li>
+          <li class="tl-task">Inform stakeholders via reports, presentations, and interagency communications.</li>
 
-                 <h4>Administrative & Logistics</h4>
-                 <ul>
-                    <li>Hold and manage purchase and travel cards with associated responsibilities.</li>
-                    <li>Develop and write technical reports and summaries.</li>
-                    <li>Schedule field and office work for self and potentially technicians.</li>
-                    <li>Participate in required trainings.</li>
-                    <li>Maintain equipment including boats, vehicles, and sampling gear.</li>
-                    <li>Attend and contribute to various inter and intra-agency meetings.</li>
-                 </ul>
-            </div>
+          <div class="tl-group-label">Acoustic Telemetry</div>
+          <li class="tl-task"><a href="https://drive.google.com/file/d/1oKHQ0uou-MQUapzQFozbqIxRJHF_RnfG/view" target="_blank">Conduct acoustic telemetry studies</a> on Bull Trout; perform <a href="https://drive.google.com/file/d/1oCLQLmUYqHF_WffaTJwfuFEZPvOfGZFm/view" target="_blank">surgical implantation</a> of acoustic tags (Vemco &amp; JSATS).</li>
+          <li class="tl-task"><a href="https://drive.google.com/file/d/15ohotWKskI5fRo__bqyaOf9Bn-CIUP2Z/view" target="_blank">Deploy, operate, and retrieve acoustic receivers</a> in various aquatic environments; analyze data to assess fish movement and behavior.</li>
 
-            <div class="entry">
-                 <div class="entry-header">
-                    <div>
-                         <h3 class="entry-title">Fisheries Technician - Yakima Basin</h3>
-                         <p class="entry-subtitle">United States Fish and Wildlife Service</p>
-                     </div>
-                      <div class="entry-header-right">
-                         <span class="entry-location">Yakima, WA</span>
-                         <span class="entry-date">May 2022 – July 2022</span>
-                         <span class="entry-details">GS-6 | 40+ hrs/wk<br>~$3,355/Mo.</span>
-                      </div>
-                </div>
-                <ul>
-                    <li>Assisted with duties described under the Fisheries Biologist role during transition period, supporting ongoing projects.</li>
-                </ul>
-            </div>
+          <div class="tl-group-label">Trap &amp; Haul Operations</div>
+          <li class="tl-task">Collect Bull Trout using <a href="https://drive.google.com/file/d/192G13XBOzU14q9LjTe8u6B0tZvhm2asr/view" target="_blank">hook and line</a>, <a href="https://drive.google.com/file/d/1zDx2yelUX4X-x4OopYsxLy_gd0J_FC29/view" target="_blank">tangle net</a>, and weir. Collect genetic samples and <a href="https://drive.google.com/file/d/1HJLxFdpxtHW7konGSe3YehnfzMZqtiaA/view" target="_blank">implant PIT tags</a>.</li>
+          <li class="tl-task">Coordinate trap and haul logistics across USFWS, WDFW, Yakama Nation, and Bureau of Reclamation.</li>
 
-             <div class="entry">
-                <div class="entry-header">
-                     <div>
-                        <h3 class="entry-title">Steelhead Creel Biologist, Willapa Drainage</h3>
-                        <p class="entry-subtitle">Washington Department of Fish and Wildlife</p>
-                     </div>
-                    <div class="entry-header-right">
-                        <span class="entry-location">Washington State</span>
-                        <span class="entry-date">Jan 2022 – Apr 2022</span>
-                        <span class="entry-details">Bio 1 | 40 hrs/wk<br>~$2,700/Mo.</span>
-                    </div>
-                </div>
-                <ul>
-                    <li>Supervised field technicians conducting creel surveys.</li>
-                    <li>Conducted creel surveys, engaging with anglers and the public.</li>
-                    <li>Performed data entry, management, and manipulation.</li>
-                    <li>Detected and removed coded wire tags (CWT) from sampled fish.</li>
-                    <li>Measured fish, collected scale and genetic samples.</li>
-                    <li>Operated remote camera traps for monitoring purposes.</li>
-                    <li>Conducted redd surveys for Steelhead and Pacific Lamprey.</li>
-                    <li>Operated catarafts for river access and surveys.</li>
-                    <li>Assisted with hatchery operations and fish culture (cleaning & feeding).</li>
-                    <li>Operated fish traps and ladders for monitoring and broodstock collection.</li>
-                    <li>Collected broodstock using tangle nets and angling methods.</li>
-                    <li>Performed live and dead spawning procedures.</li>
-                    <li>Reviewed fisheries management plans.</li>
-                </ul>
-            </div>
+          <div class="tl-group-label">Mussel Surveys</div>
+          <li class="tl-task">Conduct <a href="https://drive.google.com/file/d/1HhcBYdMg8dV12SsgazD2SbUEAzFwWNk8/view" target="_blank">large-scale eDNA collection</a> and <a href="https://drive.google.com/file/d/1kuXxdRM8S2BA9ql7BiN3P_KtWB7TVauG/view" target="_blank">visual snorkel surveys</a> for mussel species including kayaking in small woody streams.</li>
 
-             <div class="entry">
-                 <div class="entry-header">
-                    <div>
-                         <h3 class="entry-title">Graduate Teaching Assistant & Researcher</h3>
-                         <p class="entry-subtitle">Missouri State University</p>
-                      </div>
-                       <div class="entry-header-right">
-                          <span class="entry-location">Springfield, MO</span>
-                          <span class="entry-date">Jan 2020 – Jan 2022</span>
-                          <span class="entry-details">40 hrs/wk | ~$1,200/Mo.</span>
-                      </div>
-                 </div>
+          <div class="tl-group-label">Additional Projects</div>
+          <li class="tl-task">Execute Gold Creek Bull Trout <a href="https://drive.google.com/file/d/1d1uqXX5N1rvYInSBENxTVqX4F22Izum0/view" target="_blank">night snorkel surveys</a>; lead North Fork Tieton parentage study electrofishing and genetics sampling.</li>
+          <li class="tl-task">Set <a href="https://drive.google.com/file/d/11QwCCFrVx7v4lpyj4huroJaQpg3TzSxF/view" target="_blank">Oneida nets</a> for Cle Elum Sockeye <a href="https://drive.google.com/file/d/1XiPV-WQK_qjtJjSFaLjbdS_iGQHaQcGm/view" target="_blank">smolt</a> trap and haul; trained staff and volunteers. Coordinated USFWS, WDFW, Yakama Nation, and Bureau of Reclamation.</li>
+          <li class="tl-task">Bull Trout dewatering rescues and <a href="https://drive.google.com/file/d/1EKnD7y6SV4223BW7X0drgJtqMgSfpKfh/view" target="_blank">redd surveys</a>; assist with fish passage <a href="https://drive.google.com/file/d/1XQkExoBZEyYr8Bk6HK4FCk_jHKTTeNT3/view" target="_blank">flume construction</a> and fish recovery in <a href="https://drive.google.com/file/d/1J8EZpAhZpA-2rQiExsyB-pfdlhjqINxg/view" target="_blank">irrigation infrastructure</a>.</li>
+          <li class="tl-task">Assist hatchery staff with <a href="https://drive.google.com/file/d/1csIgQqvCQM3IPl7DTh2lV-3QHKTTeNT3/view" target="_blank">various tasks</a>.</li>
 
-                 <!-- Research Projects Section -->
-                 <h4>Research Projects</h4>
+          <div class="tl-group-label">Administrative &amp; Logistics</div>
+          <li class="tl-task">Hold and manage purchase and travel cards; develop technical reports; schedule field and office work; maintain boats, vehicles, and sampling gear; attend interagency meetings.</li>
+        </ul>
+      </div>
 
-                 <h5>Evaluating Hooking Mortality of Rainbow Trout (White/Norfork River, AR)</h5>
-                 <ul>
-                    <li>Supervised and mentored undergraduate volunteers during field sampling.</li>
-                    <li>Interacted with anglers and the public to gather data and provide project information.</li>
-                    <li>Applied Floy tags to track individual fish survival and movement.</li>
-                    <li>Operated, maintained, and trailered jet boats for river access.</li>
-                    <li>Managed project planning and logistics for field campaigns.</li>
-                    <li>Authored technical reports and contributed to publications.</li>
-                    <li>Managed data entry and performed statistical analysis.</li>
-                    <li>Designed experiments and constructed specialized sampling gear.</li>
-                    <li>Developed management recommendations based on research findings.</li>
-                 </ul>
+      <div class="tl-entry">
+        <div class="tl-date">May – July 2022</div>
+        <div class="tl-role">Fisheries Technician — Yakima Basin</div>
+        <div class="tl-org">United States Fish and Wildlife Service</div>
+        <div class="tl-loc">Yakima, WA &nbsp;·&nbsp; GS-6 &nbsp;·&nbsp; 40+ hrs/wk</div>
+        <ul class="tl-tasks">
+          <li class="tl-task">Supported all ongoing projects during transition period prior to promotion to Fisheries Biologist role.</li>
+        </ul>
+      </div>
 
-                 <h5>Tailwater Brown Trout Standard Weight Equation & Length-Categorization Standards</h5>
-                 <ul>
-                    <li>Communicated with various state agencies to acquire and share data.</li>
-                    <li>Manipulated and interpreted large datasets for analysis.</li>
-                    <li>Performed statistical analysis to develop weight-length relationships.</li>
-                    <li>Authored technical reports detailing methods and findings.</li>
-                 </ul>
+      <div class="tl-entry">
+        <div class="tl-date">Jan – Apr 2022</div>
+        <div class="tl-role">Steelhead Creel Biologist, Willapa Drainage</div>
+        <div class="tl-org">Washington Department of Fish and Wildlife</div>
+        <div class="tl-loc">Washington State &nbsp;·&nbsp; Bio 1 &nbsp;·&nbsp; 40 hrs/wk &nbsp;·&nbsp; ~$2,700/mo.</div>
+        <ul class="tl-tasks">
+          <li class="tl-task">Supervised field technicians; conducted creel surveys and public engagement; detected and removed coded wire tags; measured fish and collected scale and genetic samples.</li>
+          <li class="tl-task">Conducted redd surveys for Steelhead and Pacific Lamprey; operated catarafts; operated fish traps and ladders; collected broodstock via tangle nets; performed live and dead spawning procedures.</li>
+          <li class="tl-task">Assisted with hatchery operations; operated remote camera traps; reviewed fisheries management plans.</li>
+        </ul>
+      </div>
 
-                  <h5>Assessment of Hypoxia Related Mortality of Striped Bass Fishery (Norfork Lake, AR)</h5>
-                 <ul>
-                    <li>Conducted boat electrofishing surveys to sample Striped Bass populations.</li>
-                    <li>Extracted, mounted, and processed otoliths for age determination.</li>
-                    <li>Monitored dissolved oxygen levels and fish respiration rates.</li>
-                    <li>Assessed survival rates in relation to environmental conditions.</li>
-                    <li>Collected age and length data for population analysis.</li>
-                 </ul>
+      <div class="tl-entry">
+        <div class="tl-date">Jan 2020 – Jan 2022</div>
+        <div class="tl-role">Graduate Teaching Assistant &amp; Researcher</div>
+        <div class="tl-org">Missouri State University</div>
+        <div class="tl-loc">Springfield, MO &nbsp;·&nbsp; 40 hrs/wk &nbsp;·&nbsp; ~$1,200/mo.</div>
 
-                <h5>Investigating Vital Rates of Upper Mississippi River Fishes</h5>
-                 <ul>
-                    <li>Assessed vital rates (growth, mortality) of select fish species.</li>
-                    <li>Collaborated with USFWS, USACE, USGS, UMER Ctr, and multiple state DNRs (MN, WI, IA, IL, MO).</li>
-                    <li>Extracted, processed, and aged otoliths from various fish species.</li>
-                    <li>Analyzed population distribution and habitat use patterns.</li>
-                 </ul>
+        <div class="tl-group-label" style="margin-top:16px;">Research Projects</div>
+        <ul class="tl-tasks">
+          <li class="tl-task"><strong>Rainbow Trout Hooking Mortality (White/Norfork River, AR)</strong> — Supervised volunteers, applied Floy tags, operated jet boats, designed experiments, authored reports and publications.</li>
+          <li class="tl-task"><strong>Brown Trout Standard Weight Equation</strong> — Acquired data from state agencies; statistical analysis to develop weight-length relationships; authored technical reports.</li>
+          <li class="tl-task"><strong>Striped Bass Hypoxia Mortality (Norfork Lake, AR)</strong> — Boat electrofishing; otolith extraction and processing; monitored dissolved oxygen and survival rates.</li>
+          <li class="tl-task"><strong>Upper Mississippi River Fish Vital Rates</strong> — Collaborated with USFWS, USACE, USGS, and five state DNRs (MN, WI, IA, IL, MO); assessed growth, mortality, habitat use.</li>
+          <li class="tl-task"><strong>Crappie Demographics (Tablerock &amp; Stockton Lakes)</strong> — Collaborated with MDC; aged otoliths; developed population models.</li>
+          <li class="tl-task"><strong>Fish Community Assemblage (Big Piney &amp; Gasconade Rivers)</strong> — Sampled using hoop nets, fyke nets, and electrofishing; operated shallow water jet boats.</li>
+          <li class="tl-task"><strong>Asian Carp Invasive Survey (Neosho River)</strong> — Electrofishing, removal, otolith extraction, gamete collection, and distribution monitoring.</li>
+        </ul>
 
-                <h5>Crappie Population Demographics (Tablerock and Stockton Lake)</h5>
-                 <ul>
-                    <li>Collaborated with the Missouri Department of Conservation (MDC).</li>
-                    <li>Extracted, processed, and aged otoliths from Crappie.</li>
-                    <li>Developed and applied population models to assess demographics.</li>
-                 </ul>
+        <div class="tl-group-label">Teaching Assistant Roles</div>
+        <ul class="tl-tasks">
+          <li class="tl-task">Ichthyology &nbsp;·&nbsp; Principals of Wildlife Management &nbsp;·&nbsp; Fisheries Management &nbsp;·&nbsp; Intro to Biology</li>
+        </ul>
+      </div>
 
-                <h5>Fish Community Characteristic and Assemblage (Big Piney and Gasconade Rivers)</h5>
-                 <ul>
-                    <li>Sampled fish communities using various gears (hoop nets, fyke nets, electrofishing).</li>
-                    <li>Operated shallow water jet boats in riverine environments.</li>
-                    <li>Managed data entry for community analysis.</li>
-                 </ul>
+      <div class="tl-entry">
+        <div class="tl-date">May – Oct 2019</div>
+        <div class="tl-role">Fisheries Technician — PIBO Monitoring</div>
+        <div class="tl-org">United States Forest Service</div>
+        <div class="tl-loc">St. Regis, MT &nbsp;·&nbsp; GS-5 &nbsp;·&nbsp; 40+ hrs/wk</div>
+        <ul class="tl-tasks">
+          <li class="tl-task">Monitored ESA-listed Salmonid habitat using PACFISH/INFISH Biological Opinion (PIBO) protocols.</li>
+          <li class="tl-task">Planned logistics for extended backcountry hitches (80+ hrs); 50+ miles hiking/week in remote bear country terrain.</li>
+        </ul>
+      </div>
 
-                <h5>Investigation of Asian Carp (Neosho River)</h5>
-                 <ul>
-                    <li>Interacted with the public and obtained landowner permission for access.</li>
-                    <li>Operated electrofishing boat for invasive species surveys and removal.</li>
-                    <li>Removed invasive Asian Carp species.</li>
-                    <li>Extracted otoliths and collected gametes for research purposes.</li>
-                    <li>Monitored the distribution of invasive species.</li>
-                 </ul>
+      <div class="tl-entry">
+        <div class="tl-date">May–Aug 2017 &amp; 2018</div>
+        <div class="tl-role">Fisheries Technician</div>
+        <div class="tl-org">WV Dept. of Environmental Protection &amp; WVU Wildlife Genetics Lab</div>
+        <div class="tl-loc">Morgantown, WV &nbsp;·&nbsp; 40 hrs/wk &nbsp;·&nbsp; ~$10/hr.</div>
+        <ul class="tl-tasks">
+          <li class="tl-task">eDNA sampling and backpack electrofishing; species identification; water quality and macroinvertebrate sampling; deployed trotlines and gillnets; conducted rapid habitat evaluations.</li>
+        </ul>
+      </div>
 
+    </div>
+  </section>
 
-                <!-- Teaching Assistant Roles Section -->
-                <h4>Teaching Assistant Roles</h4>
-                 <ul>
-                    <li>Ichthyology</li>
-                    <li>Principals of Wildlife Management</li>
-                    <li>Fisheries Management</li>
-                    <li>Intro to Biology</li>
-                 </ul>
-            </div>
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-label">Skills</div>
+    <div class="skills-group">
+      <div class="skills-group-title">Field &amp; Survey Techniques</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Boat Electrofishing</span>
+        <span class="skill-tag">Backpack Electrofishing</span>
+        <span class="skill-tag">Parallel Wire Electrofishing</span>
+        <span class="skill-tag">Hoop &amp; Gill Netting</span>
+        <span class="skill-tag">Tangle Nets &amp; Seining</span>
+        <span class="skill-tag">eDNA Collection</span>
+        <span class="skill-tag">PIT Tag Implantation</span>
+        <span class="skill-tag">Acoustic Tag Surgery (Vemco/JSATS)</span>
+        <span class="skill-tag">Snorkel Surveys (Day/Night)</span>
+        <span class="skill-tag">Redd Surveys</span>
+        <span class="skill-tag">Habitat Assessment (PIBO)</span>
+        <span class="skill-tag">Water Chemistry (YSI)</span>
+        <span class="skill-tag">Macroinvertebrate Collection</span>
+        <span class="skill-tag">Genetic Sample Collection</span>
+        <span class="skill-tag">Otolith Extraction &amp; Reading</span>
+        <span class="skill-tag">Floy External Tagging</span>
+        <span class="skill-tag">Trotline Operation</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <div class="skills-group-title">Data, Analysis &amp; Software</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PTAGIS</span>
+        <span class="skill-tag">RStudio</span>
+        <span class="skill-tag">GIS / ArcMap</span>
+        <span class="skill-tag">Statistical Analysis</span>
+        <span class="skill-tag">GPS &amp; Data Management</span>
+        <span class="skill-tag">Microsoft Office Suite</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">Biomark Device Manager</span>
+        <span class="skill-tag">AI Tooling</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <div class="skills-group-title">Technical &amp; Operational</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Jet &amp; Prop Boat Operation</span>
+        <span class="skill-tag">Trailer Operation</span>
+        <span class="skill-tag">Raft / Drift Boat / Kayak</span>
+        <span class="skill-tag">Technical Report Writing</span>
+        <span class="skill-tag">Stakeholder Communication</span>
+        <span class="skill-tag">Staff Supervision &amp; Training</span>
+        <span class="skill-tag">Backcountry Logistics</span>
+        <span class="skill-tag">Purchase &amp; Travel Card Mgmt.</span>
+        <span class="skill-tag">Equipment Maintenance</span>
+      </div>
+    </div>
+    <div class="skills-group">
+      <div class="skills-group-title">Web Development Projects</div>
+      <div class="skill-tags">
+        <span class="skill-tag"><a href="https://conman515.github.io/Manget_opus/" target="_blank">Manget Opus ↗</a></span>
+        <span class="skill-tag"><a href="https://conman515.github.io/BullTroutGrowth/" target="_blank">Bull Trout Growth ↗</a></span>
+        <span class="skill-tag"><a href="https://conman515.github.io/Anadromous_Chart/" target="_blank">Anadromous Chart ↗</a></span>
+      </div>
+    </div>
+  </section>
 
+  <!-- PUBLICATIONS -->
+  <section class="section" id="publications">
+    <div class="section-label">Publications &amp; Presentations</div>
+    <div class="pub-entry">
+      <div class="pub-type">Peer-Reviewed Publication</div>
+      <p class="pub-text">Cunningham, C., Graham, C., Kim, H., Phelps, Q. (2022). <a href="https://drive.google.com/file/d/1mD1JyK-NDZfqgsMB3Ncaw_rkG_DZau8C/view" target="_blank">Rainbow Trout Growth and Survival on the Beaver Tailwater in Arkansas</a>. <em>Journal of the Southeastern Association of Fish and Wildlife Agencies.</em></p>
+    </div>
+    <div class="pub-entry">
+      <div class="pub-type">Technical Reports</div>
+      <p class="pub-text">USFWS. (2024). Yakima Bull Trout Trap, Transport, and Monitoring Project.</p>
+      <p class="pub-text">Interagency. (2024). <a href="https://drive.google.com/file/d/1Uik9xuGmB51FRKyigwXXVIQ-WDCwHcRD/view" target="_blank">2024 Annual Report for USFWS Section 10 ES Recovery Permit #ES38362D-2</a>.</p>
+      <p class="pub-text">USFWS. (2023). <a href="https://drive.google.com/file/d/1mwzMQeqviWSbCHBr1vym8GTjcx6-k2wr/view" target="_blank">Yakima Bull Trout Trap, Transport, and Monitoring Project.</a></p>
+      <p class="pub-text">USFWS. (2022). <a href="https://drive.google.com/file/d/15b1KZHldKp1bkADqtJFI6dwJcSwu34iH/view" target="_blank">Yakima Bull Trout Trap, Transport, and Monitoring Project.</a></p>
+    </div>
+    <div class="pub-entry">
+      <div class="pub-type">Presentations</div>
+      <p class="pub-text">Cunningham, C. (2025). <a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view" target="_blank">PIT Tag Monitoring of KRD Supplementation Streams — 2024.</a> <em>Kittitas Reclamation District Annual Meeting.</em> Ellensburg, WA.</p>
+      <p class="pub-text">Cunningham, C. (2024). <a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view" target="_blank">Maintaining Connectivity using Trap and Haul for Yakima Basin Bull Trout.</a> <em>Salvelinus Confluentus Curiosity Society.</em> Winthrop, WA.</p>
+      <p class="pub-text">Cunningham, C. (2023). Kachess Reservoir Acoustic Telemetry. <em>Bull Trout Work Group Meeting.</em> Yakima, WA.</p>
+      <p class="pub-text">Cunningham, C. (2021). Rainbow Trout Growth and Survival on the Beaver Tailwater in Arkansas. <em>National American Fisheries Society Annual Meeting.</em> Baltimore, MD.</p>
+    </div>
+  </section>
 
-             <div class="entry">
-                 <div class="entry-header">
-                    <div>
-                        <h3 class="entry-title">Fisheries Technician - PIBO Monitoring Program</h3>
-                        <p class="entry-subtitle">United States Forest Service</p>
-                     </div>
-                    <div class="entry-header-right">
-                        <span class="entry-location">St. Regis, MT</span>
-                        <span class="entry-date">May 2019 – Oct 2019</span>
-                        <span class="entry-details">GS-5 | 40+ hrs/wk<br>~$15/hr.</span>
-                    </div>
-                </div>
-                <ul>
-                    <li>Monitored habitat of ESA listed Salmonids using PACFISH/INFISH Biological Opinion (PIBO) protocols.</li>
-                    <li>Conducted extensive stream habitat monitoring and assessment surveys.</li>
-                    <li>Planned logistics for extended backcountry stays (80+ hr. hitches), ensuring crew safety and efficiency.</li>
-                    <li>Collaborated effectively within small crews in remote settings with limited supervisor communication.</li>
-                    <li>Performed physically demanding fieldwork (50+ miles hiking/week) in challenging terrain, including bear country.</li>
-                </ul>
-            </div>
+  <!-- CERTIFICATIONS -->
+  <section class="section" id="certifications">
+    <div class="section-label">Certifications</div>
+    <div class="cert-list">
+      <div class="cert-item"><div class="cert-dot"></div>NOLS Wilderness First Responder</div>
+      <div class="cert-item"><div class="cert-dot"></div>Adult/Child/Infant CPR, AED &amp; Airway Management</div>
+      <div class="cert-item"><div class="cert-dot"></div>Epinephrine Auto-injector</div>
+      <div class="cert-item"><div class="cert-dot"></div>Motorboat Operator Certification (MOCC) — Non-motorized Endorsement</div>
+      <div class="cert-item"><div class="cert-dot"></div>Chainsaw Operation Certification</div>
+      <div class="cert-item"><div class="cert-dot"></div>ATV Operation Certification</div>
+    </div>
+  </section>
 
+  <!-- VOLUNTEER -->
+  <section class="section" id="volunteer">
+    <div class="section-label">Volunteer Experience</div>
+    <div class="vol-entry">
+      <div class="vol-org">Washington Department of Fish and Wildlife</div>
+      <div class="vol-desc">Capture and tagging of Walleye in the Columbia River.</div>
+    </div>
+    <div class="vol-entry">
+      <div class="vol-org">Arkansas Game and Fish Commission</div>
+      <div class="vol-desc">Norfork River &amp; Dry Run Creek seasonal trout population assessments, Striped Bass fish kill investigations, freeze branding and PIT tagging of Brown, Rainbow, and Cutthroat Trout.</div>
+    </div>
+    <div class="vol-entry">
+      <div class="vol-org">Canaan Valley National Wildlife Refuge</div>
+      <div class="vol-desc">Native Brook Trout electrofishing; physical removal of non-native Brown Trout.</div>
+    </div>
+    <div class="vol-entry">
+      <div class="vol-org">West Virginia University Graduate Students</div>
+      <div class="vol-desc">Brook Trout electrofishing, hematocrit testing, Smallmouth Bass gastric lavage &amp; BIA, scale collection/preparation/aging.</div>
+    </div>
+    <div class="vol-entry">
+      <div class="vol-org">Community &amp; Conservation</div>
+      <div class="vol-desc">Stream clean-ups · Project Healing Waters guiding · Trout Unlimited stocking &amp; habitat restoration · Bass Pro Outdoor Days outreach presentations.</div>
+    </div>
+  </section>
 
-            <div class="entry">
-                <div class="entry-header">
-                    <div>
-                         <h3 class="entry-title">Fisheries Technician</h3>
-                         <p class="entry-subtitle">WV Dept. of Environmental Protection & WVU Wildlife Genetics Lab</p>
-                     </div>
-                     <div class="entry-header-right">
-                         <span class="entry-location">Morgantown, WV</span>
-                         <span class="entry-date">May–Aug 2017 & 2018</span>
-                         <span class="entry-details">40 hrs/wk | ~$10/hr.</span>
-                     </div>
-                </div>
-                 <ul>
-                    <li>Conducted eDNA sampling and backpack electrofishing surveys in streams to assess trout populations.</li>
-                    <li>Identified fish species encountered during surveys.</li>
-                    <li>Collected water quality and chemistry samples using field meters (e.g., YSI).</li>
-                    <li>Collected macroinvertebrate samples for water quality assessment.</li>
-                    <li>Performed rapid habitat evaluations using standardized protocols.</li>
-                    <li>Deployed and retrieved trotlines and gillnets for fish community sampling.</li>
-                </ul>
-            </div>
+  <!-- AFFILIATIONS -->
+  <section class="section" id="affiliations">
+    <div class="section-label">Professional Affiliations</div>
+    <div class="affil-list">
+      <div class="affil-tag">American Fisheries Society</div>
+      <div class="affil-tag">Trout Unlimited</div>
+    </div>
+  </section>
 
-        </section>
+  <!-- REFERENCES -->
+  <section class="section" id="references">
+    <div class="section-label">References</div>
+    <div class="ref-grid">
+      <div class="ref-card">
+        <div class="ref-name">Jason Romine, Ph.D.</div>
+        <div class="ref-role">Senior Scientist<br>Kleinschmidt Group</div>
+        <div class="ref-contact">
+          <a href="mailto:Jason.Romine@kleinschmidtgroup.com">Jason.Romine@kleinschmidtgroup.com</a>
+          <a href="tel:971-266-5395">(971) 266-5395</a>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Quinton Phelps</div>
+        <div class="ref-role">Research Professor<br>Missouri State University</div>
+        <div class="ref-contact">
+          <a href="mailto:QuintonPhelps@MissouriState.edu">QuintonPhelps@MissouriState.edu</a>
+          <a href="tel:605-695-0593">(605) 695-0593</a>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Christy Graham</div>
+        <div class="ref-role">Trout Management Program Supervisor<br>Arkansas Game &amp; Fish Commission</div>
+        <div class="ref-contact">
+          <a href="mailto:christy.graham@agfc.ar.gov">christy.graham@agfc.ar.gov</a>
+          <a href="tel:870-404-0477">(870) 404-0477</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
+</main>
 
-         <section class="cv-section" id="skills">
-            <h2>Skills</h2>
+<script>
+  // Active nav
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.section, .hero');
 
-             <!-- Using H3 for categories within Skills -->
-             <div class="skills-category">
-                 <h3>Field & Survey Techniques</h3>
-                <ul class="skills-list">
-                    <li>Electrofishing (Boat, Backpack, Parallel wire)</li>
-                    <li>Netting (Hoop, Gill, Trammel, Onedia, Seining)</li>
-                    <li>eDNA Collection & Sampling</li>
-                    <li>External Fish Tagging (e.g., Floy)</li>
-                    <li>Internal Fish Tagging (PIT, Acoustic - Vemco/JSATS)</li>
-                    <li>Fish Surgery / Tag Implantation</li>
-                    <li>Snorkel Surveys (Day/Night, Visual ID)</li>
-                    <li>Habitat Monitoring & Assessment (PIBO protocols)</li>
-                    <li>Water Chemistry Sampling (YSI sondes)</li>
-                    <li>Macroinvertebrate Collection</li>
-                    <li>Zooplankton & Phytoplankton Collection</li>
-                    <li>Trotline Operation</li>
-                    <li>Redd Surveys</li>
-                    <li>Genetic Sample Collection & Handling</li>
-                </ul>
-            </div>
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => {
+      if (s.id && window.scrollY >= s.offsetTop - 140) cur = s.id;
+    });
+    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+  });
 
-             <div class="skills-category">
-                 <h3>Data Analysis & Software Proficiency</h3>
-                <ul class="skills-list">
-                    <li>Data Management, Manipulation & Analysis</li>
-                    <li>Statistical Analysis</li>
-                    <li>PTAGIS & Associated Software</li>
-                    <li>RStudio</li>
-                    <li>GIS / ArcMap</li>
-                    <li>GPS Operation & Data Management</li>
-                    <li>Microsoft Office Suite (Excel, Word, PowerPoint, Access)</li>
-                    <li>Github (Version Control)</li>
-                    <li>Biomark Device Manager</li>
-                    <li>Leveraging Artifical Intellegance</li>
-                </ul>
-            </div>
+  // ── SCROLL REVEAL ──
+  // Assign reveal classes to all animatable elements
+  const revealSelectors = [
+    { sel: '.section-label', delay: 0 },
+    { sel: '.edu-card',      delay: 'stagger' },
+    { sel: '.tl-entry',      delay: 0 },
+    { sel: '.skills-group',  delay: 'stagger' },
+    { sel: '.pub-entry',     delay: 'stagger' },
+    { sel: '.cert-list',     delay: 0 },
+    { sel: '.vol-entry',     delay: 'stagger' },
+    { sel: '.affil-list',    delay: 0 },
+    { sel: '.ref-card',      delay: 'stagger' },
+  ];
 
-            <div class="skills-category">
-                 <h3>Technical & Operational Skills</h3>
-                <ul class="skills-list">
-                    <li>Boat Operation & Maintenance (Jet, Prop)</li>
-                    <li>Trailer Operation (Loading, Hook-up, Driving, Maintenance)</li>
-                    <li>Raft, Drift Boat, Kayak, Canoe Operation</li>
-                    <li>Fish Ageing (Otolith Extraction, Preparation & Reading)</li>
-                    <li>Technical Report Writing & Development</li>
-                    <li>Public Speaking & Stakeholder Communication</li>
-                    <li>Supervision & Training of Staff/Volunteers</li>
-                    <li>Fieldwork Logistics & Planning (incl. Backcountry)</li>
-                    <li>Purchase & Travel Card Management</li>
-                    <li>Equipment Maintenance (Vehicles, Sampling Gear)</li>
-                </ul>
-            </div>
+  revealSelectors.forEach(({ sel, delay }) => {
+    document.querySelectorAll(sel).forEach((el, i) => {
+      if (el.closest('.sidebar')) return; // skip sidebar elements
+      el.classList.add('reveal');
+      if (delay === 'stagger') {
+        el.style.transitionDelay = (i % 4 * 0.08) + 's';
+      }
+    });
+  });
 
-             <div class="skills-category">
-                  <h3>Web Development</h3>
-                <ul class="skills-list">
-                    <!-- Added anchor tags with target="_blank" -->
-                    <li><a href="https://conman515.github.io/Manget_opus/" target="_blank" rel="noopener noreferrer">Manget Opus Project</a></li>
-                    <li><a href="https://conman515.github.io/BullTroutGrowth/" target="_blank" rel="noopener noreferrer">Bull Trout Growth Project</a></li>
-                    <li><a href="https://conman515.github.io/Anadromous_Chart/" target="_blank" rel="noopener noreferrer">Anadromous Chart Project</a></li>
-                </ul>
-            </div>
-        </section>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-         <section class="cv-section" id="certifications">
-             <h2>Certifications</h2>
-            <ul class="simple-list"> <!-- Use simple-list for consistent bullet style -->
-                <li>NOLS Wilderness First Responder</li>
-                <li>Adult/Child/Infant CPR, AED & Airway Management</li>
-                <li>Epinephrine Auto-injector</li>
-                <li>Motorboat Operator Certification Course (MOCC) - Non-motorized Endorsement</li>
-                <li>Chainsaw Operation Certification</li>
-                <li>ATV Operation Certification</li>
-            </ul>
-        </section>
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        <section class="cv-section" id="publications-presentations">
-            <h2>Publications & Presentations</h2>
-             <div class="entry"> <!-- Reuse entry structure for consistency -->
-                 <h3 class="entry-title" style="font-size: 1.1em; color: var(--secondary-text-color);">Publication</h3> <!-- Minor style override for subheading -->
-                 <p style="margin-top: 5px;">Cunningham, C., Graham, C., Kim, H., Phelps, Q. (2022). <a href="https://drive.google.com/file/d/1mD1JyK-NDZfqgsMB3Ncaw_rkG_DZau8C/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Rainbow Trout Growth and Survival on the Beaver Tailwater in Arkansas</a>. <em>Journal of the Southeastern Association of Fish and Wildlife Agencies.</em></p>
-            </div>
-            <div class="entry">
-                <h3 class="entry-title" style="font-size: 1.1em; color: var(--secondary-text-color);">Technical Reports</h3>
-                <p style="margin-top: 5px;">USFWS. (2024). Yakima Bull Trout Trap, Transport, and Monitoring Project.</p>
-                <p style="margin-top: 5px;">Interagency. (2024). <a href="https://drive.google.com/file/d/1Uik9xuGmB51FRKyigwXXVIQ-WDCwHcRD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">2024 Annual Report for USFWS Section 10 ES Recovery Permit #ES38362D-2</a>.</p> <!-- Link to Recovery Permit -->
-                <p style="margin-top: 5px;">USFWS. (2023).<a href="https://drive.google.com/file/d/1mwzMQeqviWSbCHBr1vym8GTjcx6-k2wr/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> Yakima Bull Trout Trap, Transport, and Monitoring Project.</a></p>
-                <p style="margin-top: 5px;">USFWS. (2022).<a href="https://drive.google.com/file/d/15b1KZHldKp1bkADqtJFI6dwJcSwu34iH/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> Yakima Bull Trout Trap, Transport, and Monitoring Project.</a></p>
+  // ── MOUSE SPOTLIGHT ──
+  const spot = document.getElementById('spotlight');
+  let mx = 0, my = 0, sx = 0, sy = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+  (function loop(){
+    sx += (mx - sx) * 0.12;
+    sy += (my - sy) * 0.12;
+    spot.style.left = sx + 'px';
+    spot.style.top  = sy + 'px';
+    requestAnimationFrame(loop);
+  })();
 
-           </div>
-             <div class="entry">
-                 <h3 class="entry-title" style="font-size: 1.1em; color: var(--secondary-text-color);">Presentation</h3>
-                 <p style="margin-top: 5px;">Cunningham, C. (2025).<a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> PIT Tag Monitoring of KRD Supplementation Streams - 2024</a> <em>Kittitas Reclamation District Annual Meeting.</em> Ellensburg, WA.</p>
-                 <p style="margin-top: 5px;">Cunningham, C. (2024).<a href="https://drive.google.com/file/d/15dOP1_T12VdGCJQ3FqVABHbWNIfB4Jsc/view?usp=drive_link" target="_blank" rel="noopener noreferrer"> Maintaining Connectivity using Trap and Haul for Yakima Basin Bull Trout </a><em>Salvelinus Confluentus Curiosity Society.</em> Winthrop, WA.</p>
-                 <p style="margin-top: 5px;">Cunningham, C. (2023). Kachess Reservoir Acoustic Telemetry.<em> Bull Trout Work Group Meeting.</em> Yakima, WA.</p>
-                 <p style="margin-top: 5px;">Cunningham, C. (2021). Rainbow Trout Growth and Survival on the Beaver Tailwater in Arkansas. <em>National American Fisheries Society Annual Meeting.</em> Baltimore, MD.</p>
-            </div>
+  // ── READING PROGRESS ──
+  const progress = document.getElementById('readProgress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    progress.style.setProperty('--progress', pct + '%');
+  });
 
-        </section>
-
-         <section class="cv-section" id="volunteer">
-             <h2>Volunteer Experience</h2>
-             <div class="entry"> <!-- Can use entry styling without the header for clean separation -->
-                 <h3 style="font-size: 1.1em; color: var(--secondary-text-color);">Professional Volunteer Experience</h3> <!-- Using style similar to Publication/Presentation heading -->
-                 <ul class="simple-list">
-                    <li><strong>Washington Department of Fish and Wildlife</strong> Capture and tagging of Walleye in the Columbia River.</li>
-                     <li><strong>Arkansas Game and Fish Commission:</strong> Norfork River & Dry Run Creek seasonal Trout population assessments, Striped Bass fish kill investigations, Freeze branding/marking (Brown Trout), PIT tagging (Brown, Rainbow, Cutthroat Trout).</li>
-                     <li><strong>Canaan Valley National Wildlife Refuge:</strong> Electrofishing (native Brook Trout), Physical removal (non-native Brown Trout).</li>
-                     <li><strong>West Virginia University Graduate Students:</strong> Brook Trout electrofishing, Hematocrit testing (minnow spp.), Smallmouth Bass gastric lavage & BIA, Smallmouth scale collection/preparation/aging.</li>
-                  </ul>
-             </div>
-             <div class="entry">
-                  <h3 style="font-size: 1.1em; color: var(--secondary-text-color);">General Volunteer Work</h3>
-                 <ul class="simple-list">
-                    <li>Stream Clean-Ups</li>
-                    <li>Project Healing Waters - Guiding</li>
-                    <li>Trout Unlimited - Stocking, habitat restoration</li>
-                    <li>Bass Pro Outdoor Days - Verbal presentations and outreach</li>
-                </ul>
-             </div>
-        </section>
-
-         <section class="cv-section" id="affiliations">
-             <h2>Professional Affiliations</h2>
-             <ul class="simple-list">
-                <li>American Fisheries Society (AFS)</li>
-                <li>Trout Unlimited</li>
-            </ul>
-        </section>
-
-
-         <section class="cv-section" id="references">
-            <h2>References</h2>
-             <div class="references-list">
-                <div class="ref-entry">
-                    <p><strong>Jason Romine, Ph.D.</strong></p>
-                    <p>Senior Scientist, Kleinschmidt Group</p>
-                    <p><a href="mailto:Jason.Romine@kleinschmidtgroup.com">Jason.Romine@kleinschmidtgroup.com</a> | <a href="tel:971-266-5395">(971)-266-5395</a></p>
-                </div>
-                 <div class="ref-entry">
-                     <p><strong>Quinton Phelps</strong></p>
-                     <p>Research Professor, Missouri State University</p>
-                     <p><a href="mailto:QuintonPhelps@MissouriState.edu">QuintonPhelps@MissouriState.edu</a> | <a href="tel:605-695-0593">(605)-695-0593</a></p>
-                 </div>
-                 <div class="ref-entry">
-                    <p><strong>Christy Graham</strong></p>
-                    <p>Trout Management Program Supervisor, Arkansas Game and Fish Commission</p>
-                    <p><a href="mailto:christy.graham@agfc.ar.gov">christy.graham@agfc.ar.gov</a> | <a href="tel:870-404-0477">(870)-404-0477</a></p>
-                 </div>
-            </div>
-        </section>
-
-    </div> <!-- End CV Container -->
+  // ── 3D MAGNETIC TILT ──
+  document.querySelectorAll('.edu-card, .ref-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(1000px) rotateY(${x*6}deg) rotateX(${-y*6}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+</script>
 
 </body>
 </html>
